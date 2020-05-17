@@ -1,0 +1,192 @@
+.game-over {
+  display: flex;
+}
+
+.game-over__title {
+  width: 100%;
+  position: absolute;
+  margin: 10px auto;
+  margin-bottom: 100px;
+  padding: 20px;
+  animation: text 2s ease infinite;
+  -webkit-animation: text 2s ease infinite;
+}
+
+.game-over__carousel {
+  position: absolute;
+  bottom: 5%;
+  right: 20%;
+}
+
+.game-over > Button {
+  position: absolute;
+  bottom: 25%;
+  left: 45%;
+  animation: button 2s ease-in-out infinite alternate;
+  -webkit-animation: button 2s ease-in-out infinite alternate;
+}
+
+.game-over > audio {
+  position: absolute;
+  bottom: 5%;
+  left: 10px;
+}
+
+.game-over__balloons {
+  top: 20%;
+  margin-left: 30px;
+  position: absolute;
+}
+
+.game-over__balloon {
+  display: inline-block;
+  width: 120px;
+  height: 145px;
+  background: var(--color-secondary);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: inset -10px -10px 0 rgba(0, 0, 0, 0.07);
+  margin: 20px 10px;
+  transition: transform 0.5s ease;
+  z-index: 10;
+  animation: balloons 4s ease-in-out infinite;
+  transform-origin: bottom center;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.game-over__balloon:before {
+  content: "▲";
+  font-size: 20px;
+  color: #5979a6;
+  display: block;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: -12px;
+}
+
+.game-over__balloon:after {
+  display: inline-block;
+  top: 153px;
+  left: 60px;
+  position: absolute;
+  height: 250px;
+  width: 1px;
+  content: "";
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.game-over__balloon:nth-child(2) {
+  background: #ce8355;
+  animation-duration: 5s;
+}
+.game-over__balloon:nth-child(2):before {
+  color: #a96942;
+}
+
+.game-over__balloon:nth-child(3) {
+  background: #95e2ac;
+  animation-duration: 3s;
+}
+.game-over__balloon:nth-child(3):before {
+  color: #4c7a5a;
+}
+
+.game-over__balloon--number {
+  line-height: 120px;
+  color: #eec662;
+  font-size: 500%;
+  animation: numbers 2s ease-in-out infinite alternate;
+  -webkit-animation: numbers 2s ease-in-out infinite alternate;
+}
+
+.game-over__balloon--image {
+  line-height: 120px;
+  color: #eec662;
+  /*   width: 65%; */
+  font-size: 75px;
+  margin-top: 10px;
+  opacity: 0.3;
+  border-radius: 50%;
+  background-color: #95e2ac;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.game-over__party-hat {
+  position: absolute;
+  right: 12%;
+  top: 15%;
+  float: right;
+  width: 8%;
+  animation: party-hat 3s ease-in-out infinite;
+  -webkit-animation: party-hat 2s ease-in-out infinite;
+}
+
+@keyframes balloons {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-8deg);
+    -webkit-transform: translateY(0) rotate(-8deg);
+    -moz-transform: translateY(0) rotate(-8deg);
+    -ms-transform: translateY(0) rotate(-8deg);
+    -o-transform: translateY(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(8deg);
+    -webkit-transform: translateY(-30px) rotate(8deg);
+    -moz-transform: translateY(-30px) rotate(8deg);
+    -ms-transform: translateY(-30px) rotate(8deg);
+    -o-transform: translateY(-30px) rotate(8deg);
+  }
+}
+
+@keyframes party-hat {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes numbers {
+  from {
+    color: #eec662;
+  }
+
+  to {
+    color: gray;
+  }
+}
+
+@keyframes text {
+  from {
+  }
+  to {
+    color: var(--color-secondary);
+  }
+}
+
+@keyframes button {
+  from {
+    text-shadow: 0 0 10px var(--color-blue), 0 0 20px var(--color-blue),
+      0 0 30px var(--color-blue), 0 0 40px var(--color-blue),
+      0 0 50px var(--color-blue), 0 0 60px var(--color-blue),
+      0 0 70px var(--color-blue), 0 0 90px var(--color-blue);
+  }
+
+  to {
+    color: white;
+    text-shadow: 0 0 20px var(--color-blue), 0 0 30px var(--color-blue),
+      0 0 40px var(--color-blue), 0 0 50px var(--color-blue),
+      0 0 60px var(--color-blue), 0 0 70px var(--color-blue),
+      0 0 80px var(--color-blue), 0 1 90px var(--color-blue);
+  }
+}

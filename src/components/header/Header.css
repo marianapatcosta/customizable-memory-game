@@ -1,0 +1,43 @@
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 60px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-secondary);
+  box-shadow: 0 2px 2px var(--color-shadow);
+  z-index: 50;
+}
+
+.header__title {
+  margin-left: 150px;
+  flex: 1 0 auto;
+  position: relative;
+}
+
+.header__title > span {
+  position: absolute;
+  color: var(--color-orange);
+  font-size: 50%;
+  font-weight: 400;
+  padding: 5px;
+  transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -ms-transform: rotate(-30deg);
+  -o-transform: rotate(-30deg);
+  border: 1px solid var(--color-orange);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.header__toggle {
+  padding-right: 50px;
+  margin-left: auto;
+}

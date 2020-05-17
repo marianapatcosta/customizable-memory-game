@@ -1,0 +1,188 @@
+.confetti__container {
+  width: 100vw;
+  height: 115vh;
+}
+
+.confetti {
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  opacity: 0.9;
+  position: absolute;
+  animation: confetti 3s ease-in-out -1s infinite;
+  transform-origin: left top;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  -webkit-animation: confetti 3s ease-in-out -1s infinite;
+}
+
+.confetti:nth-child(1) {
+  background-color: #6bac5a;
+  left: 5%;
+  animation-delay: 0;
+}
+.confetti:nth-child(2) {
+  background-color: #95c3de;
+  left: 10%;
+  animation-delay: -2.7s;
+}
+.confetti:nth-child(3) {
+  background-color: #ff9a91;
+  left: 15%;
+  animation-delay: -1.75s;
+}
+.confetti:nth-child(4) {
+  background-color: #f2d74e;
+  left: 20%;
+  animation-delay: -4.9s;
+}
+.confetti:nth-child(5) {
+  background-color: #6bac5a;
+  left: 25%;
+  animation-delay: -4s;
+}
+.confetti:nth-child(6) {
+  background-color: #e92cd9;
+  left: 30%;
+  animation-delay: -2.9s;
+}
+.confetti:nth-child(7) {
+  background-color: #9a6cee;
+  left: 35%;
+  animation-delay: -1.5s;
+}
+.confetti:nth-child(8) {
+  background-color: #95c3de;
+  left: 40%;
+  animation-delay: -2s;
+}
+.confetti:nth-child(9) {
+  background-color: #e92cd9;
+  left: 45%;
+  animation-delay: -3.2s;
+}
+.confetti:nth-child(10) {
+  background-color: #f2d74e;
+  left: 50%;
+  animation-delay: -2.1s;
+}
+.confetti:nth-child(11) {
+  background-color: #95c3de;
+  left: 55%;
+  animation-delay: 0;
+}
+.confetti:nth-child(12) {
+  background-color: #f2d74e ;
+  left: 60%;
+  animation-delay: -5.2s;
+}
+.confetti:nth-child(13) {
+  background-color: #6bac5a;
+  left: 65%;
+  animation-delay: -1.7s;
+}
+.confetti:nth-child(14) {
+  background-color: #ff9a91;
+  left: 70%;
+  animation-delay: -0.5s;
+}
+.confetti:nth-child(15) {
+  background-color: #e92cd9;
+  left: 75%;
+  animation-delay: -4.5s;
+}
+.confetti:nth-child(16) {
+  background-color: #6bac5a;
+  left: 80%;
+  animation-delay: -5s;
+}
+.confetti:nth-child(17) {
+  background-color: #e92cd9;
+  left: 85%;
+  animation-delay: -1.5s;
+}
+.confetti:nth-child(18) {
+  background-color: #9a6cee;
+  left: 90%;
+  animation-delay: -2s;
+}
+.confetti:nth-child(19) {
+  background-color: #95c3de;
+  left: 95%;
+  animation-delay: -3s;
+}
+.confetti:nth-child(20) {
+  background-color: #f2d74e;
+  left: 100%;
+  animation-delay: -2.5s;
+}
+.confetti:nth-child(21) {
+  background-color: #e92cd9;
+  left: 20%;
+  animation-delay: -1.5s;
+}
+.confetti:nth-child(22) {
+  background-color: #9a6cee;
+  left: 5%;
+  animation-delay: -1.5s;
+}
+.confetti:nth-child(23) {
+  background-color: #95c3de;
+  left: 35%;
+  animation-delay: -3s;
+}
+.confetti:nth-child(24) {
+  background-color: #e92cd9;
+  left: 55%;
+  animation-delay: -1.5s;
+}
+.confetti:nth-child(25) {
+  background-color: #f2d74e;
+  left: 15%;
+  animation-delay: -3s;
+}
+.confetti:nth-child(26) {
+  background-color: #95c3de;
+  left: 25%;
+  animation-delay: 0.5s;
+}
+.confetti:nth-child(27) {
+  background-color: #f2d74e ;
+  left: 95%;
+  animation-delay: -5s;
+}
+.confetti:nth-child(28) {
+  background-color: #6bac5a;
+  left: 88%;
+  animation-delay: 0s;
+}
+.confetti:nth-child(29) {
+  background-color: #ff9a91;
+  left: 30%;
+  animation-delay: -0.5s;
+}
+.confetti:nth-child(30) {
+  background-color: #e92cd9;
+  left: 45%;
+  animation-delay: -2.5s;
+}
+
+@keyframes confetti {
+  0% {
+    transform: rotateZ(15deg) rotateY(0deg) translate(0, 0);
+  }
+  25% {
+    transform: rotateZ(5deg) rotateY(360deg) translate(-5vw, 20vh);
+  }
+  50% {
+    transform: rotateZ(15deg) rotateY(720deg) translate(5vw, 60vh);
+  }
+  75% {
+    transform: rotateZ(5deg) rotateY(1080deg) translate(-10vw, 80vh);
+  }
+  100% {
+    transform: rotateZ(15deg) rotateY(1440deg) translate(10vw, 110vh);
+  }
+}
