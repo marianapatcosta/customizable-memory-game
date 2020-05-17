@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import GameStart from "./pages/game-start/GameStart";
+import GameOver from "./pages/game-over/GameOver";
+import GameBoard from "./pages/game-board/GameBoard";
+import Header from "./components/header/Header";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [isGameStarted, setIsGameStarted] = useState(true);
+  const [isGameOver, setIsGameOver] = useState(true);
+
+  const startGame = () => setIsGameStarted(true);
+
+  const showGameOver = () => setIsGameOver(true);
+
+  const restartGame = () => {
+    setIsGameStarted(false);
+    setIsGameOver(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header title="Memory Game" />
+      <div className="app__spacer">&nbsp;</div>
+      {!isGameStarted && !isGameOver && <GameStart startGame={startGame} />}
+      {isGameStarted && !isGameOver && (
+        <GameBoard handleGameOver={showGameOver} restartGame={restartGame} />
+      )}
+      {isGameStarted && isGameOver && <GameOver restartGame={restartGame} />}
     </div>
   );
-}
+};
 
 export default App;
