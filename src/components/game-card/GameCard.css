@@ -1,35 +1,53 @@
-.game-card {
-  position: relative;
+.game-card-wrapper {
   list-style: none;
   width: 150px;
   height: 210px;
+  position: relative;
   margin: 15px;
+  transform-style: preserve-3d;
+  animation: bounce 1.2s ease-in-out;
+  -webkit-animation: bounce 1.2s ease-in-out;
+}
+
+.game-card-wrapper--landscape {
+  width: 210px;
+  height: 150px;
+}
+
+.game-card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border: 1px solid var(--color-transparent);
   border-radius: 6px;
   padding: 5px;
   background: var(--color-white);
-  transition: transform 0.5s;
-  transform-style: preserve-3d;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-  animation: bounce 1.2s ease-in-out;
-  -webkit-animation: bounce 1.2s ease-in-out;
+  box-sizing: border-box;
+  transition: transform 0.5s ease;
+  -webkit-transition: transform 0.5s ease;
+  -moz-transition: transform 0.5s ease;
+  -ms-transition: transform 0.5s ease;
+  -o-transition: transform 0.5s ease;
+  backface-visibility: hidden;
+  overflow: hidden;
 }
 
-.game-card--selected {
+.game-card--front {
   transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -ms-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
 }
 
-.game-card--landscape {
-  width: 210px;
-  height: 150px;
+.game-card--selected-back {
+	transform: rotateY(-180deg);
+}
+.game-card--selected-front {
+	transform: rotateY(0deg);
+}
+
+.game-card--matched {
+  pointer-events: none;
 }
 
 .game-card:hover {
@@ -40,14 +58,11 @@
 .game-card__image {
   width: 100%;
   height: 100%;
-  backface-visibility: hidden;
 }
 
 @keyframes bounce {
   0%,
-  20%,
   50%,
-  80%,
   100% {
     transform: translateY(0);
   }

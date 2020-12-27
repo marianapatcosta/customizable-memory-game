@@ -6,8 +6,8 @@ import Header from "./components/header/Header";
 import "./App.css";
 
 const App = () => {
-  const [isGameStarted, setIsGameStarted] = useState(true);
-  const [isGameOver, setIsGameOver] = useState(true);
+  const [isGameStarted, setIsGameStarted] = useState(false);
+  const [isGameOver, setIsGameOver] = useState(false);
 
   const startGame = () => setIsGameStarted(true);
 
