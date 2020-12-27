@@ -32,7 +32,7 @@ const GameBoard = ({ handleGameOver, restartGame }) => {
   const initCards = defineRandomizedCards();
   const [cards, setCards] = useState(initCards);
   const [errorMessage, setErrorMessage] = useState("");
-  const [confirmationModal, setConfirmationModal] = useState("");
+  const [isConfirmationModal, setIsConfirmationModal] = useState("");
 
   const updateGameCards = useCallback(() => {
     const selectedCards = cards.filter((card) => card.isSelected);
@@ -78,10 +78,11 @@ const GameBoard = ({ handleGameOver, restartGame }) => {
   }, [cards, checkGameOver, updateGameCards]);
 
   const handleCardSelection = (index) => {
+    
     const selectedCards = cards.filter((card) => card.isSelected);
-    if (cards[index].isMatched) {
+/*     if (cards[index].isMatched) {
       return setErrorMessage("This card is already matched!");
-    }
+    } */
 
     if (selectedCards.length >= 2) {
       return setErrorMessage("You can only select 2 cards!");
@@ -100,12 +101,12 @@ const GameBoard = ({ handleGameOver, restartGame }) => {
 
   const handleQuitGame = () => {
     setErrorMessage("Are you sure you want to quit?");
-    setConfirmationModal(true);
+    setIsConfirmationModal(true);
   };
 
   const onCloseModal = () => {
     setErrorMessage("");
-    setConfirmationModal(false);
+    setIsConfirmationModal(false);
   };
 
   return (
@@ -113,10 +114,10 @@ const GameBoard = ({ handleGameOver, restartGame }) => {
       <h2 className="game-board__title">Select two cards and match them all</h2>
       {errorMessage && (
         <Modal
-          confirmationModal={confirmationModal}
+          confirmationModal={isConfirmationModal}
           onConfirmation={restartGame}
           onClose={onCloseModal}
-          buttonLabel={confirmationModal ? "Cancel" : "OK"}
+          buttonLabel={isConfirmationModal ? "Cancel" : "OK"}
           confirmationLabel="Yes"
           message={errorMessage}
         />
@@ -124,13 +125,13 @@ const GameBoard = ({ handleGameOver, restartGame }) => {
       <ul className="game-board__card-list">
         {cards.map((card, index) => (
           <GameCard
-            key={card}
+            key={`card-${index}`}
             imageSrc={card.path}
             alt={`card ${index}`}
             isSelected={card.isSelected}
             isMatched={card.isMatched}
             landscape
-            onClick={() => handleCardSelection(index)}
+            onClick={() => handleCardSelection(index)} //onClick={handleCardSelection.bind(null, index)} 
           />
         ))}
       </ul>
