@@ -12,7 +12,9 @@ const ToggleSwitch = ({
 }) => {
   return (
     <div
-      className={`toggle-switch ${label ? "toggle-switch--with-label" : ""}`}
+      className={`toggle-switch ${disabled ? "toggle-switch--disabled" : ""} ${
+        label ? "toggle-switch--with-label" : ""
+      }`}
       onClick={handleToggle}
     >
       {label && (
@@ -35,7 +37,7 @@ const ToggleSwitch = ({
             disabled ? "toggle-switch__label--disabled" : ""
           }`}
         >
-          {leftLabel}
+          {checked && leftLabel}
         </span>
 
         <span
@@ -43,7 +45,7 @@ const ToggleSwitch = ({
             disabled ? "toggle-switch__label--disabled" : ""
           }`}
         >
-          {rightLabel}
+          {!checked && rightLabel}
         </span>
       </span>
     </div>
