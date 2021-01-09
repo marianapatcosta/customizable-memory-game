@@ -19,8 +19,7 @@ const GameCard = ({
       <div
         className={`game-card game-card--front ${
           isSelected || isMatched ? "game-card--selected-front" : ""
-        } ${isMatched ? "game-card--matched" : ""}
-          `}
+        }`}
       >
         <img className="game-card__image" src={imageSrc} alt={alt} />
       </div>
