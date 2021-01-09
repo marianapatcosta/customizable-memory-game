@@ -1,9 +1,6 @@
 import React from "react";
-import Button from "../../components/button/Button";
-import Confetti from "../../animations/Confetti";
-import Carousel from "../../components/carousel/Carousel";
-import Emoji from "../../components/emoji/Emoji";
-
+import { Button, Carousel, Emoji } from "../../components";
+import { Confetti } from "../../animations";
 import "./GameOver.css";
 
 const photos = Array.from(Array(6), (item, index) => `./${index}.jpg`);

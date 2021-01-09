@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-
-import ToggleSwitch from "../toggle-switch/ToggleSwitch";
+import { ToggleSwitch } from "../";
+import { Chevron } from "../../assets/icons";
 import "./Carousel.css";
 
 const Carousel = ({ header, items, hasPreviews, landscape }) => {
-  const [active, setActive] = useState(0);
+  const [presentingItemIndex, setPresentingItemIndex] = useState(0);
   const [isAutomaticView, setAutomaticView] = useState(true);
   const chevronRef = useRef();
 
@@ -21,33 +21,33 @@ const Carousel = ({ header, items, hasPreviews, landscape }) => {
   };
 
   const nextItem = () => {
-    if (active === items.length - 1) {
-      return setActive(0);
+    if (presentingItemIndex === items.length - 1) {
+      return setPresentingItemIndex(0);
     }
-    setActive((prevActive) => prevActive + 1);
+    setPresentingItemIndex((prevPresentingItem) => prevPresentingItem + 1);
   };
 
   const previousItem = () => {
-    if (active === 0) {
-      return setActive(items.length - 1);
+    if (presentingItemIndex === 0) {
+      return setPresentingItemIndex(items.length - 1);
     }
-    setActive((prevActive) => prevActive - 1);
+    setPresentingItemIndex((prevActive) => prevActive - 1);
   };
 
-  const handleItemClick = (index) => {  
-    setActive(index);
+  const handleItemClick = (index) => {
+    setPresentingItemIndex(index);
   };
-  
+
   const handlePreviewClick = (clickedItem) => {
     const index = items.findIndex((item) => item === clickedItem);
-    setActive(index);
+    setPresentingItemIndex(index);
   };
 
   return (
     <div className="carousel">
       <div className="carousel__header">
         <h2 className="carousel__header--title">{header}</h2>
-        <span className="carousel__header--toggle-switch">
+        <span>
           <ToggleSwitch
             leftLabel="off"
             rightLabel="on"
@@ -60,13 +60,17 @@ const Carousel = ({ header, items, hasPreviews, landscape }) => {
         {hasPreviews && (
           <div className="carousel__previews">
             <img
-              src={items[active - 2] || items[items.length - 2]}
-              onClick={() => handlePreviewClick(items[active - 2] || items[items.length - 2])}
+              src={items[presentingItemIndex - 2] || items[items.length - 2]}
+              onClick={() =>
+                handlePreviewClick(items[presentingItemIndex - 2] || items[items.length - 2])
+              }
               alt="small view"
             />
             <img
-              src={items[active - 1] || items[items.length - 1]}
-              onClick={() => handlePreviewClick(items[active - 1] || items[items.length - 1])}
+              src={items[presentingItemIndex - 1] || items[items.length - 1]}
+              onClick={() =>
+                handlePreviewClick(items[presentingItemIndex - 1] || items[items.length - 1])
+              }
               alt="small view"
             />
           </div>
@@ -80,22 +84,22 @@ const Carousel = ({ header, items, hasPreviews, landscape }) => {
             className="carousel__chevron carousel__chevron-left"
             onClick={previousItem}
           >
-            <img src="./chevron.svg" alt="left chevron" />
+            <img src={Chevron} alt="left chevron" />
           </span>
-          <img src={items[active]} alt="selected view" />
+          <img src={items[presentingItemIndex]} alt="selected view" />
           <span
             className="carousel__chevron carousel__chevron-right"
             onClick={nextItem}
             ref={chevronRef}
           >
-            <img src="./chevron.svg" alt="right chevron" />
+            <img src={Chevron} alt="right chevron" />
           </span>
           <span className="carousel__bar">
             {items.map((item, index) => (
               <span
                 key={index * Math.random()}
-                className={`carousel__bar--item ${
-                  index <= active ? "carousel__bar--item--shown" : ""
+                className={`carousel__bar-item ${
+                  index <= presentingItemIndex ? "carousel__bar-item--shown" : ""
                 }`}
                 onClick={() => handleItemClick(index)}
               ></span>
@@ -105,13 +109,13 @@ const Carousel = ({ header, items, hasPreviews, landscape }) => {
         {hasPreviews && (
           <div className="carousel__previews">
             <img
-              src={items[active + 1] || items[0]}
-              onClick={() => handlePreviewClick(items[active + 1] || items[0])}
+              src={items[presentingItemIndex + 1] || items[0]}
+              onClick={() => handlePreviewClick(items[presentingItemIndex + 1] || items[0])}
               alt="small view"
             />
             <img
-              src={items[active + 2] || items[1]}
-              onClick={() => handlePreviewClick(items[active + 2] || items[1])}
+              src={items[presentingItemIndex + 2] || items[1]}
+              onClick={() => handlePreviewClick(items[presentingItemIndex + 2] || items[1])}
               alt="small view"
             />
           </div>

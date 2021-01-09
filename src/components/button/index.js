@@ -1,5 +1,4 @@
 import React, { forwardRef } from "react";
-
 import "./Button.css";
 
 const Button = forwardRef(({ disabled, onClick, type, label }, ref) => {

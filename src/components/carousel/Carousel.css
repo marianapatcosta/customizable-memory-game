@@ -7,15 +7,11 @@
   justify-content: space-between;
   margin: 10px 0;
   height: 20px;
-}
-
-.carousel__header--toggle-switch {
   line-height: 20px;
 }
 
 .carousel__header--title {
   color: var(--color-orange);
-  line-height: 20px;
   margin: 0;
 }
 
@@ -111,7 +107,7 @@
   z-index: 10;
 }
 
-.carousel__bar--item {
+.carousel__bar-item {
   border: 1px solid var(--color-black);
   border-radius: 50%;
   height: 7px;
@@ -123,6 +119,6 @@
   -o-border-radius: 50%;
 }
 
-.carousel__bar--item--shown {
+.carousel__bar-item--shown {
   background-color: var(--color-black);
 }

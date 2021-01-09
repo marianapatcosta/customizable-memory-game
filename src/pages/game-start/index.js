@@ -1,7 +1,5 @@
 import React from "react";
-import Button from "../../components/button/Button";
-import Emoji from "../../components/emoji/Emoji";
-
+import { Button, Emoji } from "../../components";
 import "./GameStart.css";
 
 const GameStart = ({ startGame }) => {
