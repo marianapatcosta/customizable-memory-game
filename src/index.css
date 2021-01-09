@@ -27,11 +27,17 @@
   --color-black: #000000;*/
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: var(--color-primary);
-  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
   color: var(--color-font);
-  margin: 0;
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
