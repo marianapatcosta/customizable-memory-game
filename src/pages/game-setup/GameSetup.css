@@ -1,0 +1,14 @@
+.game-setup__title {
+  margin: 30px 0;
+  font-size: 180%;
+}
+
+.game-setup > Button {
+  position: absolute;
+  left: 45%;
+  bottom: 5%;
+}
+
+
+
+
