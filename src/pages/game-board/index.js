@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
-
+import { Button, GameCard, Modal } from "../../components";
 import "./GameBoard.css";
-import GameCard from "../../components/game-card/GameCard";
-import Modal from "../../components/modal/Modal";
-import Button from "../../components/button/Button";
 
 const defineRandomizedCards = () => {
   let cards = Array.from(Array(6), (item, index) => {
@@ -78,9 +75,8 @@ const GameBoard = ({ handleGameOver, restartGame }) => {
   }, [cards, checkGameOver, updateGameCards]);
 
   const handleCardSelection = (index) => {
-    
     const selectedCards = cards.filter((card) => card.isSelected);
-/*     if (cards[index].isMatched) {
+    /*     if (cards[index].isMatched) {
       return setErrorMessage("This card is already matched!");
     } */
 
@@ -131,7 +127,7 @@ const GameBoard = ({ handleGameOver, restartGame }) => {
             isSelected={card.isSelected}
             isMatched={card.isMatched}
             landscape
-            onClick={() => handleCardSelection(index)} //onClick={handleCardSelection.bind(null, index)} 
+            onClick={() => handleCardSelection(index)} //onClick={handleCardSelection.bind(null, index)}
           />
         ))}
       </ul>

@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import Emoji from "../emoji/Emoji";
-import ToggleSwitch from "../toggle-switch/ToggleSwitch";
-
+import { Emoji, ToggleSwitch } from "../";
 import "./Header.css";
 
 const Header = ({ title }) => {

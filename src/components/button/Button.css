@@ -23,7 +23,7 @@
 
 .button:hover,
 .button:active {
-  border-color: var(--color-secondary);
+  border-color: var(--color-secondary); 
   opacity: 1;
 }
 
