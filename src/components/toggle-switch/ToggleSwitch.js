@@ -11,8 +11,9 @@ const ToggleSwitch = ({
   handleToggle,
 }) => {
   return (
-    <label
+    <div
       className={`toggle-switch ${label ? "toggle-switch--with-label" : ""}`}
+      onClick={handleToggle}
     >
       {label && (
         <span
@@ -23,31 +24,29 @@ const ToggleSwitch = ({
           {label}{" "}
         </span>
       )}
-      <input
-        className="toggle-switch__input"
-        type="checkbox"
-        checked={checked}
-        disabled={disabled}
-        onChange={handleToggle}
-      />
+
       <span
         className={`toggle-switch__slider ${
           disabled ? "toggle-switch__slider--disabled" : ""
-        }`}
+        } ${checked ? "toggle-switch__slider--checked" : ""}`}
       >
         <span
-          className={`toggle-switch__label toggle-switch__label-left {disabled ? 'toggle-switch__label--disabled' : ''}`}
+          className={`toggle-switch__label ${
+            disabled ? "toggle-switch__label--disabled" : ""
+          }`}
         >
           {leftLabel}
         </span>
 
         <span
-          className={`toggle-switch__label toggle-switch__label-right {disabled ? 'toggle-switch__label--disabled' : ''}`}
+          className={`toggle-switch__label ${
+            disabled ? "toggle-switch__label--disabled" : ""
+          }`}
         >
           {rightLabel}
         </span>
       </span>
-    </label>
+    </div>
   );
 };
 
