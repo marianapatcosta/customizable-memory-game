@@ -2,16 +2,21 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Button, GameCard, Modal } from "../../components";
 import "./GameBoard.css";
 
-const defineRandomizedCards = () => {
-  let cards = Array.from(Array(6), (item, index) => {
+const defineRandomizedCards = (imageFilesAsDataUrl) => {
+  let cards = imageFilesAsDataUrl.map((imageFile) => ({
+    path: imageFile,
+    isSelected: false,
+    isMatched: false,
+  }));
+  /*   let cards = Array.from(Array(6), (imageFile, index) => {
     return {
-      path: `./${index}.jpg`,
+      path: imageFile,
       isSelected: false,
       isMatched: false,
     };
-  });
+  }); */
 
-  let randomizedCards = (cards = [...cards, ...cards]);
+  let randomizedCards = [...cards, ...cards];
   let count = randomizedCards.length;
   let temporaryStoredCard;
 
@@ -25,8 +30,14 @@ const defineRandomizedCards = () => {
   return randomizedCards;
 };
 
-const GameBoard = ({ handleGameOver, restartGame }) => {
-  const initCards = defineRandomizedCards();
+const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
+  const {
+    cardOrientation,
+    numberOfCards,
+    gameCardBackImage,
+    gameCardImages,
+  } = gameSetup;
+  const initCards = defineRandomizedCards(gameCardImages);
   const [cards, setCards] = useState(initCards);
   const [errorMessage, setErrorMessage] = useState("");
   const [isConfirmationModal, setIsConfirmationModal] = useState("");
@@ -126,7 +137,8 @@ const GameBoard = ({ handleGameOver, restartGame }) => {
             alt={`card ${index}`}
             isSelected={card.isSelected}
             isMatched={card.isMatched}
-            landscape
+            gameCardBackImage={gameCardBackImage}
+            cardOrientation={cardOrientation}
             onClick={() => handleCardSelection(index)} //onClick={handleCardSelection.bind(null, index)}
           />
         ))}

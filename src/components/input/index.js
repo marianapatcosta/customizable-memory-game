@@ -1,36 +1,35 @@
 import React from "react";
 import "./Input.css";
 
-const Input = ({
-  id,
-  label,
-  type,
-  maxLength,
-  value,
-  placeholder,
-  errorText,
-  onChange,
-  onBlur
-}) => {
+const Input = ({ id, isInvalid, label, errorText, ...inputProps }) => {
   return (
-    <div  className="input__wrapper">
-      <label htmlFor={id} className="input__label">
-        {label}
-      </label>
+    <div className="input__wrapper">
+      {label && (
+        <label htmlFor={id} className="input__label">
+          {label}
+        </label>
+      )}
       <input
         id={id}
-        className={`input ${!!errorText ? 'input--error' : ''}`}
-        errorText={errorText}
-        type={type || "text"}
-        maxLength={maxLength || 150}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        onBlur={onBlur}
-        />
-      {!!errorText && <p className="input__error">{errorText}</p>}
+        {...inputProps}
+        className={`input ${isInvalid ? "input--error" : ""}`}
+      />
+      {isInvalid && <p className="input__error">{errorText}</p>}
     </div>
   );
+};
+
+Input.defaultProps = {
+  type: "text",
+  maxLength: 150,
+  id: "",
+  label: "",
+  value: "",
+  isInvalid: true,
+  placeholder: "",
+  errorText: "",
+  onChange: () => null,
+  onBlur: () => null,
 };
 
 export default Input;

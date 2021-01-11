@@ -1,5 +1,5 @@
 import React from "react";
-
+import { ORIENTATIONS } from "../../constants";
 import "./GameCard.css";
 
 const GameCard = ({
@@ -7,13 +7,16 @@ const GameCard = ({
   alt,
   isSelected,
   isMatched,
-  landscape,
+  cardOrientation,
+  gameCardBackImage,
   onClick,
 }) => {
   return (
     <li
       className={`game-card-wrapper  ${
-        landscape ? "game-card-wrapper--landscape" : ""
+        cardOrientation === ORIENTATIONS.LANDSCAPE
+          ? "game-card-wrapper--landscape"
+          : ""
       }`}
     >
       <div
@@ -33,7 +36,7 @@ const GameCard = ({
         <img
           className="game-card__image"
           src={"./cover.jpg"}
-          alt={"card-cover"}
+          alt={gameCardBackImage}
         />
       </div>
     </li>

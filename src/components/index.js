@@ -1,5 +1,6 @@
 
 import Button from "./button";
+import Card from "./card";
 import Carousel from "./carousel";
 import Emoji from "./emoji";
 import GameCard from "./game-card";
@@ -7,13 +8,13 @@ import Header from "./header";
 import Input from "./input";
 import Modal from "./modal";
 import RadioButton from "./radio-button";
-import RadioButtonGroup from "./radio-button-group";
 import Toast from "./toast";
 import ToggleSwitch from "./toggle-switch";
 import Upload from "./upload";
 
 export {
   Button,
+  Card,
   Carousel,
   Emoji,
   GameCard,
@@ -21,7 +22,6 @@ export {
   Input,
   Modal,
   RadioButton,
-  RadioButtonGroup,
   Toast,
   ToggleSwitch,
   Upload

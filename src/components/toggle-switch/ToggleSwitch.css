@@ -19,7 +19,7 @@
   line-height: 12px;
   padding: 0 2px;
   align-self: center;
-  font-size: 85%;
+  font-size: 95%;
   font-style: italic;
   white-space: nowrap;
 }
@@ -30,6 +30,10 @@
 
 .toggle-switch__label--disabled {
   color: var(--color-disabled);
+}
+
+.toggle-switch__slider > .toggle-switch__label {
+  font-size: 85%;
 }
 
 .toggle-switch__slider {

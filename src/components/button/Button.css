@@ -1,18 +1,17 @@
 .button {
   padding: 10px 20px;
   border: 1px solid var(--color-secondary);
-  border-radius: 10px;
+  border-radius: 3px;
   background: var(--color-secondary);
-  opacity: 0.9;
   color: var(--color-font);
   cursor: pointer;
   margin-right: 10px;
   font-size: 90%;
   font-weight: 700;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
   min-width: 100px;
 }
 
@@ -23,23 +22,19 @@
 
 .button:hover,
 .button:active {
-  border-color: var(--color-secondary); 
-  opacity: 1;
+  border-color: var(--color-secondary);
+  opacity: 0.5;
 }
 
 .button:disabled,
 .button:hover:disabled,
 .button:active:disabled {
-  background: var(--color-disabled);
-  color: #ccc;
-  border-color: #ccc;
+  opacity: 0.3;
   pointer-events: none;
 }
 
-.button--small {
-  font-size: 0.8rem;
+.button--large {
+  width: 100%;
 }
 
-.button--big {
-  font-size: 1.5rem;
-}
+

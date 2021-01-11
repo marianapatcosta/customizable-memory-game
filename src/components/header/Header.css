@@ -15,7 +15,8 @@
 .header__title {
   margin-left: 150px;
   flex: 1 0 auto;
-  position: relative;
+  position: relative;  
+  text-align: center;
 }
 
 .header__title > span {
