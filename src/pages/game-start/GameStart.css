@@ -1,21 +1,24 @@
 .game-start__title {
-  margin: 30px 0;
+  margin: 30px auto;
   font-size: 180%;
 }
 
 .game-start > Button {
   position: absolute;
-  left: 45%;
+  left: 0;
+  right: 0;
   bottom: 5%;
+  margin: 0 auto;
 }
 
 .game-start__present {
   position: absolute;
   top: 75%;
   left: 50%;
-  transform: translate(-50%, -50%);
   font-size: 200px;
   animation: pop 1.2s infinite;
+  -webkit-animation: pop 1.2s infinite;
+  transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);

@@ -1,5 +1,5 @@
 .input__wrapper {
-  margin: 15px 0;
+  margin: 10px 0;
   position: relative;
   width: 100%;
 }
@@ -9,7 +9,7 @@
   color: var(--color-font);
   width: 100%;
   border: 1px solid var(--color-transparent);
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
   box-shadow: 0 1px 4px var(--color-shadow);
   box-sizing: border-box;
   padding: 5px 10px;
@@ -31,10 +31,12 @@
 
 .input__label {
   display: block;
-  color: var(--color-primary);
+  color: var(--color-font);
   margin-bottom: 5px;
   margin-left: 5px;
   font-size: 95%;
+  font-style: italic;
+  text-align: left;
 }
 
 .input__error {
@@ -42,4 +44,16 @@
   font-weight: bold;
   font-size: 90%;
   margin-top: 5px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

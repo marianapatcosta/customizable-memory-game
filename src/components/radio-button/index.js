@@ -1,20 +1,26 @@
 import React from "react";
-import { orientation } from "../../constants";
 import "./RadioButton.css";
 
-const RadioButton = ({ label, isActive, disabled, display, onClick }) => {
+const RadioButton = ({ className, label, id, isSelected, disabled, name, onClick }) => {
   return (
     <div
-      className={`radio-button__wrapper ${display === orientation[1] ? 'radio-button__wrapper--landscape' : ''}`}
+      className={`radio-button__wrapper ${className}`}
       disabled={disabled}
       onClick={onClick}
     >
       <div
         className={`radio-button ${disabled ? "radio-button--disabled" : ""}`}
       >
-        {isActive && <div className="radio-button--active"></div>}
+        <input type="radio" id={id} checked={isSelected} onChange={onClick} name={name} />
+        <div
+          className={`radio-button__check ${
+            isSelected ? "radio-button__check--active" : ""
+          }`}
+        ></div>
       </div>
-      <label className="radio-button__label">{label}</label>
+      <label className="radio-button__label" htmlFor={id}>
+        {label}
+      </label>
     </div>
   );
 };

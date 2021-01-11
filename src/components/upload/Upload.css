@@ -1,0 +1,11 @@
+.upload {
+  width: 100%;
+}
+
+.upload__input {
+  visibility: hidden;
+  position: absolute;
+  z-index: -1;
+  width: 0;
+  height: 0;
+}
