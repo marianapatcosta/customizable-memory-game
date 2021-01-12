@@ -1,0 +1,40 @@
+.menu-bar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 25px;
+  width: 100vw;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: var(--color-light-gray);
+  box-sizing: border-box;
+  -webkit-app-region: drag;
+}
+
+.menu-bar__title {
+  margin-left: 15px;
+  font-size: 70%;
+  font-weight: 700;
+  padding-top: 3px;
+}
+
+.menu-bar__icons {
+  margin-right: 15px;
+  -webkit-app-region: no-drag;
+}
+
+.menu-bar__icon {
+  width: 15px;
+  height: 15px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.menu-bar__icon:hover {
+  background-color: var(--color-gray);
+}
+
+.menu-bar__icon--red-hover:hover {
+  background-color: var(--color-red);
+}
