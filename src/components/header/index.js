@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Emoji, ToggleSwitch } from "../";
 import "./Header.css";
 
-const Header = ({ title }) => {
+const Header = ({ title, isElectron }) => {
   const [isDarkTheme, setDarkTheme] = useState(false);
 
   const toggleMode = () => {
@@ -21,7 +21,7 @@ const Header = ({ title }) => {
   }, [setTheme]);
 
   return (
-    <header className="header">
+    <header className={`header ${isElectron ? "header--electron" : ""}`}>
       <h2 className="header__title">
         {title}
         <span>

@@ -5,10 +5,10 @@ const Toast = ({ message, type = 'info', className, onClean }) => {
 
   const getTypeClass = () => {
     const toastTypesClasses = {
-      alert: ".toast--alert",
-      info: ".toast--info",
-      success: ".toast--success",
-      warning: ".toast--warning",
+      alert: "toast--alert",
+      info: "toast--info",
+      success: "toast--success",
+      warning: "toast--warning",
     };
     return toastTypesClasses[type];
   };

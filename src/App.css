@@ -11,6 +11,10 @@
   width: 100vw;
 }
 
+.app__spacer--electron {
+  height: 85px;
+}
+
 .app::-webkit-scrollbar {
   display: none;
 }
