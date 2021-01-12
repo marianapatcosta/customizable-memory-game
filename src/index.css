@@ -12,19 +12,14 @@
   --color-red: #b33030;
   --color-green: #008000;
   --color-yellow: #f5d252;
+  --color-light-gray: #e6e6e6;
+  --color-gray: #cfcccc;
 }
 
 [theme="dark"] {
   --color-primary: #21374b;
   --color-secondary: #395d7e;
   --color-font: #ffffff;
-  /* --color-shadow: 240, 240, 240;
-   --color-disabled: #aaaaaa;
-  --color-transparent: Transparent;
-  --color-blue: #12217c;
-  --color-orange: #eb8d53; 
-  --color-white: #ffffff;
-  --color-black: #000000;*/
 }
 
 * {

@@ -8,13 +8,6 @@ const defineRandomizedCards = (imageFilesAsDataUrl) => {
     isSelected: false,
     isMatched: false,
   }));
-  /*   let cards = Array.from(Array(6), (imageFile, index) => {
-    return {
-      path: imageFile,
-      isSelected: false,
-      isMatched: false,
-    };
-  }); */
 
   let randomizedCards = [...cards, ...cards];
   let count = randomizedCards.length;
@@ -33,7 +26,6 @@ const defineRandomizedCards = (imageFilesAsDataUrl) => {
 const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
   const {
     cardOrientation,
-    numberOfCards,
     gameCardBackImage,
     gameCardImages,
   } = gameSetup;

@@ -6,6 +6,7 @@ import Emoji from "./emoji";
 import GameCard from "./game-card";
 import Header from "./header";
 import Input from "./input";
+import MenuBar from "./menu-bar";
 import Modal from "./modal";
 import RadioButton from "./radio-button";
 import Toast from "./toast";
@@ -20,6 +21,7 @@ export {
   GameCard,
   Header,
   Input,
+  MenuBar,
   Modal,
   RadioButton,
   Toast,

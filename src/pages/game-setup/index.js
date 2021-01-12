@@ -16,10 +16,10 @@ import {
 } from "../../constants";
 import "./GameSetup.css";
 
-const GameSetup = ({handleSubmit}) => {
+const GameSetup = ({ handleSubmit }) => {
   const [cardOrientation, setCardOrientation] = useState(ORIENTATIONS.VERTICAL);
   const [numberOfCards, setNumberOfCards] = useState({
-    value: 10,
+    value: "",
     isValid: false,
     isTouched: false,
   });
@@ -83,26 +83,33 @@ const GameSetup = ({handleSubmit}) => {
   const handleInputTouch = (setter) =>
     setter((prevState) => ({ ...prevState, isTouched: true }));
 
-/*   const isGameSetupValid = () => {
-    return !!cardOrientation && numberOfCards.isValid 
-  } */
+  const isGameSetupValid = () =>
+    !!cardOrientation &&
+    numberOfCards.isValid &&
+    !!gameCardBackImage &&
+    !!gameCardImages.length;
 
   const handleSetupSubmit = (e) => {
     e.preventDefault();
     const gameSetup = {
       cardOrientation,
-      numberOfCards: numberOfCards.value,
       gameCardBackImage,
-      gameCardImages
+      gameCardImages,
     };
-    handleSubmit(gameSetup);
+    isGameSetupValid() && handleSubmit(gameSetup);
   };
 
   return (
     <div className="game-setup">
       <h2 className="game-setup__title">Setup you game!</h2>
       <Card className="game-setup__form">
-        {toastData.message && <Toast {...toastData} onClean={setToastData} />}
+        {toastData.message && (
+          <Toast
+            className="game-setup__toast"
+            {...toastData}
+            onClean={setToastData}
+          />
+        )}
         <form onSubmit={handleSetupSubmit}>
           <div className="game-setup__form-item">
             <h5 className="game-setup__form-item-title">Card orientation</h5>
@@ -159,7 +166,7 @@ const GameSetup = ({handleSubmit}) => {
           </div>
           <div className="game-setup__form-item">
             <h5 className="game-setup__form-item-title">
-              Upload game card images
+              {`Upload ${numberOfCards.value ? numberOfCards.value / 2 : ''} images for game card`}
             </h5>
             <Upload
               label="Upload"
