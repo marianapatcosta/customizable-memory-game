@@ -16,8 +16,7 @@ const createWindow = () => {
     show: false,
     frame: false, // to remove default menu bar
   });
-  // mainWindow.setTitle('ToDOrganizer');
-  // mainWindow.setTitle(require('../package.json').productName);
+  
   const baseURL = isDev
     ? "http://localhost:3000"
     : `file://${path.join(__dirname, "../build/index.html")}`;

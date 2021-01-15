@@ -3,11 +3,12 @@ import { Button, GameCard, Modal } from "../../components";
 import "./GameBoard.css";
 
 const defineRandomizedCards = (imageFilesAsDataUrl) => {
-  let cards = imageFilesAsDataUrl.map((imageFile) => ({
-    path: imageFile,
+  let cards = Array.from(Array(6)).fill('')/* imageFilesAsDataUrl */.map((imageFile, index) => ({
+    path: /* imageFile */`./${index}.jpg`,
     isSelected: false,
     isMatched: false,
   }));
+  console.log({cards})
 
   let randomizedCards = [...cards, ...cards];
   let count = randomizedCards.length;
@@ -29,7 +30,7 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
     gameCardBackImage,
     gameCardImages,
   } = gameSetup;
-  const initCards = defineRandomizedCards(gameCardImages);
+  const initCards = defineRandomizedCards(/* gameCardImages */);
   const [cards, setCards] = useState(initCards);
   const [errorMessage, setErrorMessage] = useState("");
   const [isConfirmationModal, setIsConfirmationModal] = useState("");
@@ -79,10 +80,6 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
 
   const handleCardSelection = (index) => {
     const selectedCards = cards.filter((card) => card.isSelected);
-    /*     if (cards[index].isMatched) {
-      return setErrorMessage("This card is already matched!");
-    } */
-
     if (selectedCards.length >= 2) {
       return setErrorMessage("You can only select 2 cards!");
     }
@@ -135,9 +132,7 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
           />
         ))}
       </ul>
-      <footer>
-        <Button onClick={handleQuitGame} label="Quit game" />
-      </footer>
+        <Button className="game-board__footer" onClick={handleQuitGame} label="Quit game" />
     </div>
   );
 };

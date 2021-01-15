@@ -38,10 +38,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media only screen and (min-width: 480px) {
-  body {
-    font-size: 0.85rem;
-  }
+h1, h2, h3 {
+  line-height: 1.8rem;
 }
 
 @media only screen and (min-width: 767px) {

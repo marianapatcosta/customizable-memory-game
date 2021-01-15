@@ -1,6 +1,10 @@
 .confetti__container {
   width: 100vw;
-  height: 115vh;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
 }
 
 .confetti {
@@ -74,7 +78,7 @@
   animation-delay: 0;
 }
 .confetti:nth-child(12) {
-  background-color: #f2d74e ;
+  background-color: #f2d74e;
   left: 60%;
   animation-delay: -5.2s;
 }
@@ -149,7 +153,7 @@
   animation-delay: 0.5s;
 }
 .confetti:nth-child(27) {
-  background-color: #f2d74e ;
+  background-color: #f2d74e;
   left: 95%;
   animation-delay: -5s;
 }

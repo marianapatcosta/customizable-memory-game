@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ToggleSwitch } from "../";
 import { Chevron } from "../../assets/icons";
+import { ORIENTATIONS } from "../../constants";
 import "./Carousel.css";
 
-const Carousel = ({ header, items, hasPreviews, landscape }) => {
+const Carousel = ({ header, items, hasPreviews, imageOrientation }) => {
   const [presentingItemIndex, setPresentingItemIndex] = useState(0);
   const [isAutomaticView, setAutomaticView] = useState(true);
   const chevronRef = useRef();
@@ -77,7 +78,7 @@ const Carousel = ({ header, items, hasPreviews, landscape }) => {
         )}
         <div
           className={`carousel__selected ${
-            landscape ? "carousel__selected--landscape" : ""
+            imageOrientation === ORIENTATIONS.LANDSCAPE ? "carousel__selected--landscape" : ""
           }`}
         >
           <span
