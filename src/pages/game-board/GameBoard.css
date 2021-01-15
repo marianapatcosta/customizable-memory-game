@@ -1,13 +1,22 @@
 .game-board__title {
-  margin: 30px 0;
-  color: var(--color-font);
+  margin: 30px auto;
   font-size: 180%;
 }
 
 .game-board__card-list {
-  width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.game-board__footer {
+  margin: 30px 0;
+}
+
+
+@media only screen and (min-width: 767px) {
+  .game-board__title {
+    margin: 30px 0;
+  }
 }

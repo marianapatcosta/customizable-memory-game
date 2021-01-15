@@ -1,41 +1,27 @@
 .game-over {
   display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .game-over__title {
   width: 100%;
-  position: absolute;
   margin: 10px auto;
-  margin-bottom: 100px;
-  padding: 20px;
+  margin-bottom: 10px;
+  line-height: 2rem;
   animation: text 2s ease infinite;
   -webkit-animation: text 2s ease infinite;
 }
 
-.game-over__carousel {
-  position: absolute;
-  bottom: 5%;
-  right: 20%;
-}
-
-.game-over > Button {
-  position: absolute;
-  bottom: 25%;
-  left: 45%;
-  animation: button 2s ease-in-out infinite alternate;
-  -webkit-animation: button 2s ease-in-out infinite alternate;
-}
-
-.game-over > audio {
-  position: absolute;
-  bottom: 5%;
-  left: 10px;
+.game-over__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  position: relative;
 }
 
 .game-over__balloons {
-  top: 20%;
-  margin-left: 30px;
-  position: absolute;
+  margin: 20px 10px;
 }
 
 .game-over__balloon {
@@ -46,9 +32,8 @@
   border-radius: 50%;
   position: relative;
   box-shadow: inset -10px -10px 0 rgba(0, 0, 0, 0.07);
-  margin: 20px 10px;
+  margin-right: 10px;
   transition: transform 0.5s ease;
-  z-index: 10;
   animation: balloons 4s ease-in-out infinite;
   transform-origin: bottom center;
   -webkit-border-radius: 50%;
@@ -83,6 +68,7 @@
   background: #ce8355;
   animation-duration: 5s;
 }
+
 .game-over__balloon:nth-child(2):before {
   color: #a96942;
 }
@@ -106,7 +92,8 @@
 .game-over__balloon--image {
   line-height: 120px;
   color: #eec662;
-  /*   width: 65%; */
+  text-align: center;
+  width: 100%;
   font-size: 75px;
   margin-top: 10px;
   opacity: 0.3;
@@ -119,13 +106,50 @@
 }
 
 .game-over__party-hat {
-  position: absolute;
-  right: 12%;
-  top: 15%;
-  float: right;
-  width: 8%;
+  margin-right: 30px;
+  width: 80px;
   animation: party-hat 3s ease-in-out infinite;
   -webkit-animation: party-hat 2s ease-in-out infinite;
+}
+
+.game-over__body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 20px 30px;
+}
+
+.game-over__body--bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-over__button {
+  margin-top: 10px;
+  animation: button 2s ease-in-out infinite alternate;
+  -webkit-animation: button 2s ease-in-out infinite alternate;
+}
+
+@media only screen and (min-width: 767px) {
+  .game-over__balloons {
+    margin-left: 30px;
+  }
+
+  .game-over__body {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    margin: 10px 50px 30px;
+  }
+
+  .game-over__party-hat {
+    margin-right: 30px;
+    width: 100px;
+  }
 }
 
 @keyframes balloons {
