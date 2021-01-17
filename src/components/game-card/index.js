@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ORIENTATIONS } from "../../constants";
 import "./GameCard.css";
 
@@ -11,6 +11,7 @@ const GameCard = ({
   gameCardBackImage,
   onClick,
 }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
   return (
     <li
       className={`game-card-wrapper  ${
@@ -33,10 +34,14 @@ const GameCard = ({
         }`}
         onClick={onClick}
       >
+        {!isLoaded && (
+          <div className={`game-card__image game-card__image--placeholder`}></div>
+        )}
         <img
-          className="game-card__image"
+          className={`game-card__image ${!isLoaded ? 'game-card__image--not-loaded' : ''}`}
           src={"./cover.jpg"}
           alt={gameCardBackImage}
+          onLoad={() => setIsLoaded(true)}
         />
       </div>
     </li>

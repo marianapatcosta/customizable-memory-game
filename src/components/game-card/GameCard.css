@@ -70,6 +70,14 @@
   height: 100%;
 }
 
+.game-card__image--not-loaded {
+  visibility: hidden;
+}
+
+.game-card__image--placeholder {
+  background-color: var(--color-secondary);
+}
+
 @keyframes bounce {
   0%,
   50%,
