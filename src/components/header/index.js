@@ -3,11 +3,18 @@ import { Emoji, ToggleSwitch } from "../";
 import "./Header.css";
 
 const Header = ({ title, isElectron }) => {
-  const [isDarkTheme, setDarkTheme] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const toggleMode = () => {
-    setDarkTheme(!isDarkTheme);
-    setTheme();
+    setIsDarkTheme(!isDarkTheme);
+    const storedData = JSON.parse(localStorage.getItem("userPreferences"));
+    localStorage.setItem(
+      "userPreferences",
+      JSON.stringify({
+        ...storedData,
+        isDarkTheme: !isDarkTheme,
+      })
+    );
   };
 
   const setTheme = useCallback(() => {
@@ -17,8 +24,13 @@ const Header = ({ title, isElectron }) => {
   }, [isDarkTheme]);
 
   useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem("userPreferences"));
+    storedData?.isDarkTheme && setIsDarkTheme(storedData.isDarkTheme);
+  }, []);
+
+  useEffect(() => {
     setTheme();
-  }, [setTheme]);
+  }, [isDarkTheme, setTheme]);
 
   return (
     <header className={`header ${isElectron ? "header--electron" : ""}`}>
