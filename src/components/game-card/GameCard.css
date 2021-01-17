@@ -46,18 +46,18 @@
 }
 
 .game-card--selected-back {
-	transform: rotateY(180deg);
-	-webkit-transform: rotateY(180deg);
-	-moz-transform: rotateY(180deg);
-	-ms-transform: rotateY(180deg);
-	-o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
 }
 .game-card--selected-front {
-	transform: rotateY(0deg);
-	-webkit-transform: rotateY(0deg);
-	-moz-transform: rotateY(0deg);
-	-ms-transform: rotateY(0deg);
-	-o-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
 }
 
 .game-card:hover {
@@ -76,6 +76,44 @@
 
 .game-card__image--placeholder {
   background-color: var(--color-secondary);
+  position: relative;
+  overflow: hidden;
+  opacity: 0.5;
+}
+
+.game-card__image--placeholder:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 420px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--color-secondary),
+    var(--color-disabled),
+    var(--color-secondary)
+  );
+  animation: loading 2s infinite linear;
+  -webkit-animation: loading 2s infinite linear;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+  50%,
+  100% {
+    transform: translateY(230px);
+    -webkit-transform: translateY(230px);
+    -moz-transform: translateY(230px);
+    -ms-transform: translateY(230px);
+    -o-transform: translateY(230px);
+  }
 }
 
 @keyframes bounce {
