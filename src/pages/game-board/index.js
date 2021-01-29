@@ -3,12 +3,12 @@ import { Button, GameCard, Modal } from "../../components";
 import "./GameBoard.css";
 
 const defineRandomizedCards = (imageFilesAsDataUrl) => {
-  let cards = Array.from(Array(6)).fill('')/* imageFilesAsDataUrl */.map((imageFile, index) => ({
-    path: /* imageFile */`./${index}.jpg`,
+  let cards = imageFilesAsDataUrl.map((imageFile, index) => ({
+    name: imageFile.name,
+    path: imageFile.src,
     isSelected: false,
     isMatched: false,
   }));
-  console.log({cards})
 
   let randomizedCards = [...cards, ...cards];
   let count = randomizedCards.length;
@@ -25,13 +25,9 @@ const defineRandomizedCards = (imageFilesAsDataUrl) => {
 };
 
 const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
-  const {
-    cardOrientation,
-    gameCardBackImage,
-    gameCardImages,
-  } = gameSetup;
-  const initCards = defineRandomizedCards(/* gameCardImages */);
-  const [cards, setCards] = useState(initCards);
+  const { cardOrientation, gameCardBackImage, gameCardImages } = gameSetup;
+
+  const [cards, setCards] = useState(defineRandomizedCards(gameCardImages));
   const [errorMessage, setErrorMessage] = useState("");
   const [isConfirmationModal, setIsConfirmationModal] = useState("");
 
@@ -43,9 +39,9 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
     const indexCardOne = cards.indexOf(selectedCards[0]);
     const indexCardTwo = cards.indexOf(selectedCards[1]);
 
-    if (selectedCards[0].path === selectedCards[1].path) {
+    if (selectedCards[0].name === selectedCards[1].name) {
       return setCards((prevCards) => {
-        let newCards = [...prevCards];
+        const newCards = [...prevCards];
         newCards[indexCardOne].isSelected = false;
         newCards[indexCardOne].isMatched = true;
         newCards[indexCardTwo].isSelected = false;
@@ -56,7 +52,7 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
 
     setTimeout(() => {
       setCards((prevCards) => {
-        let newCards = [...prevCards];
+        const newCards = [...prevCards];
         newCards[indexCardOne].isSelected = false;
         newCards[indexCardOne].isMatched = false;
         newCards[indexCardTwo].isSelected = false;
@@ -67,8 +63,7 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
   }, [cards]);
 
   const checkGameOver = useCallback(() => {
-    const matchingCards = cards.filter((cards) => cards.isMatched);
-    if (matchingCards.length === cards.length) {
+    if (cards.every((cards) => cards.isMatched)) {
       handleGameOver();
     }
   }, [cards, handleGameOver]);
@@ -87,9 +82,10 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
     return setCards((prevCards) => {
       let newCards = [...prevCards];
       newCards.splice(index, 1, {
+        name: prevCards[index].name,
         path: prevCards[index].path,
         isSelected: true,
-        isMatched: prevCards[index].isMatched,
+        isMatched: false,
       });
       return newCards;
     });
@@ -126,13 +122,17 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
             alt={`card ${index}`}
             isSelected={card.isSelected}
             isMatched={card.isMatched}
-            gameCardBackImage={gameCardBackImage}
+            gameCardBackImage={gameCardBackImage.src}
             cardOrientation={cardOrientation}
             onClick={() => handleCardSelection(index)} //onClick={handleCardSelection.bind(null, index)}
           />
         ))}
       </ul>
-        <Button className="game-board__footer" onClick={handleQuitGame} label="Quit game" />
+      <Button
+        className="game-board__footer"
+        onClick={handleQuitGame}
+        label="Quit game"
+      />
     </div>
   );
 };

@@ -21,14 +21,14 @@ const Carousel = ({ header, items, hasPreviews, imageOrientation }) => {
     setAutomaticView((prevState) => !prevState);
   };
 
-  const nextItem = () => {
+  const handleNextItemClick = () => {
     if (presentingItemIndex === items.length - 1) {
       return setPresentingItemIndex(0);
     }
     setPresentingItemIndex((prevPresentingItem) => prevPresentingItem + 1);
   };
 
-  const previousItem = () => {
+  const handlePreviousItemClick = () => {
     if (presentingItemIndex === 0) {
       return setPresentingItemIndex(items.length - 1);
     }
@@ -83,14 +83,14 @@ const Carousel = ({ header, items, hasPreviews, imageOrientation }) => {
         >
           <span
             className="carousel__chevron carousel__chevron-left"
-            onClick={previousItem}
+            onClick={handlePreviousItemClick}
           >
             <img src={Chevron} alt="left chevron" />
           </span>
           <img src={items[presentingItemIndex]} alt="selected view" />
           <span
             className="carousel__chevron carousel__chevron-right"
-            onClick={nextItem}
+            onClick={handleNextItemClick}
             ref={chevronRef}
           >
             <img src={Chevron} alt="right chevron" />
@@ -98,7 +98,7 @@ const Carousel = ({ header, items, hasPreviews, imageOrientation }) => {
           <span className="carousel__bar">
             {items.map((item, index) => (
               <span
-                key={index * Math.random()}
+                key={`carousel-item-${index * Math.random()}`}
                 className={`carousel__bar-item ${
                   index <= presentingItemIndex ? "carousel__bar-item--shown" : ""
                 }`}

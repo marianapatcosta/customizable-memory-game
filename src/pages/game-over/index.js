@@ -1,11 +1,28 @@
 import React from "react";
 import { Button, Carousel, Emoji } from "../../components";
 import { Confetti } from "../../animations";
+import { PartyHat } from "../../assets/images";
+import { Parabens } from "../../assets/audio";
 import "./GameOver.css";
 
-const photos = Array.from(Array(6), (item, index) => `./${index}.jpg`);
+// const photos = Array.from(Array(6), (item, index) => `./${index}.jpg`);
 
-const GameOver = ({ restartGame }) => {
+const getAgeNumbers = (age) => {
+  if (!age) return { firstAgeNumber: "?", secondAgeNumber: "?" };
+  if (age.length === 1) return { firstAgeNumber: "?", secondAgeNumber: age };
+  return { firstAgeNumber: age[0], secondAgeNumber: age[1] };
+};
+
+const GameOver = ({ gameSetup, restartGame }) => {
+  const {
+    carouselOrientation,
+    carouselImages,
+    age,
+    balloonImage,
+    birthdayAudio,
+  } = gameSetup;
+  const { firstAgeNumber, secondAgeNumber } = getAgeNumbers(age);
+
   return (
     <div className="game-over">
       <Confetti />
@@ -15,41 +32,51 @@ const GameOver = ({ restartGame }) => {
       <div className="game-over__top">
         <div className="game-over__balloons">
           <div className="game-over__balloon">
-            <span className="game-over__balloon--number">?</span>
+            <span className="game-over__balloon--number">{firstAgeNumber}</span>
           </div>
           <div className="game-over__balloon">
-            <span className="game-over__balloon--number">?</span>
+            <span className="game-over__balloon--number">
+              {secondAgeNumber}
+            </span>
           </div>
           <div className="game-over__balloon">
             <div className="game-over__balloon--image">
-              <Emoji label="party" emoji="🥳" />
+              {!balloonImage ? (
+                <Emoji label="party" emoji="🥳" />
+              ) : (
+                <img
+                  className="game-over__balloon--image"
+                  src={balloonImage.src}
+                  alt="balloon"
+                />
+              )}
             </div>
-            {/*  <img
-              className="game-over__balloon--image"
-              src="./0.jpg"
-              alt="balloon"
-            /> */}
           </div>
         </div>
         <img
           className="game-over__party-hat"
-          src="./party-hat.png"
+          src={PartyHat}
           alt="party hat"
         />
       </div>
       <div className="game-over__body">
-        {window.matchMedia("(max-width: 768px)").matches && (
-          <div className="game-over__carousel">
-            <Carousel
-              header="Carousel Photos"
-              items={photos}
-              landscape={true}
-            />
-          </div>
-        )}
+        {window.matchMedia("(max-width: 768px)").matches &&
+          !!carouselImages.length && (
+            <div className="game-over__carousel">
+              <Carousel
+                items={carouselImages.map(({ src }) => src)}
+                imageOrientation={carouselOrientation}
+              />
+            </div>
+          )}
         <div className="game-over__body--bottom">
           <audio controls autoPlay loop>
-            <source src="./parabens.mp3" type="audio/mpeg"></source>
+            <source
+              src={
+                birthdayAudio.src || Parabens
+              }
+              type="audio/mpeg"
+            ></source>
           </audio>
           <Button
             className="game-over__button"
@@ -57,15 +84,15 @@ const GameOver = ({ restartGame }) => {
             label="Play Again"
           />
         </div>
-        {window.matchMedia("(min-width: 767px)").matches && (
-          <div className="game-over__carousel">
-            <Carousel
-              header="Carousel Photos"
-              items={photos}
-              /* hasPreviews={true}*/ landscape={true}
-            />
-          </div>
-        )}
+        {window.matchMedia("(min-width: 767px)").matches &&
+          !!carouselImages.length && (
+            <div className="game-over__carousel">
+              <Carousel
+                items={carouselImages.map(({ src }) => src)}
+                imageOrientation={carouselOrientation}
+              />
+            </div>
+          )}
       </div>
     </div>
   );

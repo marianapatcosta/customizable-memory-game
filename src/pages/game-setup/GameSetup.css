@@ -4,22 +4,25 @@
   text-align: center;
 }
 
-.game-setup > Button {
-  position: absolute;
-  left: 45%;
-  bottom: 5%;
-}
-
 .game-setup__form {
   margin: 30px auto;
   width: 80%;
   position: relative;
 }
 
+.game-setup__step-title {
+  font-size: 120%;
+}
+
+.game-setup__step-image {
+  width: 50%;
+  margin: 15px auto;
+}
+
 .game-setup__form-item {
   text-align: left;
   width: 90%;
-  margin: 20px auto;
+  margin: 40px auto;
 }
 
 .game-setup__form-item-title {
@@ -30,6 +33,7 @@
 
 .game-setup__form-item-title--input {
   margin-bottom: 0px;
+  width: 50%;
 }
 
 .game-setup__form-item-radio {
@@ -39,6 +43,10 @@
 .game-setup__form-button {
   margin: 60px auto;
   width: 90%;
+}
+
+.game-setup__form-upload {
+  width: 30%;
 }
 
 .game-setup__radio {
@@ -62,7 +70,7 @@
 
 @media only screen and (min-width: 767px) {
   .game-setup__form {
-    width: 60%;
+    width: 65%;
   }
 
   .game-setup__form-item {
@@ -76,6 +84,6 @@
 
 @media only screen and (min-width: 1023px) {
   .game-setup__form {
-    width: 40%;
+    width: 50%;
   }
 }

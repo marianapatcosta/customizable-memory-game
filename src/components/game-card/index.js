@@ -39,8 +39,8 @@ const GameCard = ({
         )}
         <img
           className={`game-card__image ${!isLoaded ? 'game-card__image--not-loaded' : ''}`}
-          src={"./cover.jpg"}
-          alt={gameCardBackImage}
+          src={gameCardBackImage}
+          alt={'card-back'}
           onLoad={() => setIsLoaded(true)}
         />
       </div>

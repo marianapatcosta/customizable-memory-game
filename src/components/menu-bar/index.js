@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Delete, Maximize, Minimize, Restore } from "../../assets/icons";
+import { Close, Maximize, Minimize, Restore } from "../../assets/icons";
 import { isElectron } from "../../utils";
 import "./MenuBar.css";
 const isElectronProcess = isElectron();
@@ -58,8 +58,8 @@ const Menubar = ({title}) => {
         )}
         <img
           className="menu-bar__icon menu-bar__icon--red-hover"
-          alt="delete icon"
-          src={Delete}
+          alt="close icon"
+          src={Close}
           onClick={handleQuit}
         />
       </div>
