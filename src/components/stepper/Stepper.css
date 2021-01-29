@@ -1,0 +1,108 @@
+.stepper {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin: 30px auto;
+}
+
+.stepper--portrait {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.stepper-container--portrait {
+  width: 100%;
+}
+
+.stepper__indicator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.stepper__indicator:before {
+  content: " ";
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-white);
+}
+
+.stepper__indicator--portrait {
+  flex-direction: column;
+  margin: 30px;
+  margin-bottom: 0;
+}
+
+.stepper__indicator--portrait:before {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 2px;
+  height: 100%;
+}
+
+.stepper__progress-bar {
+  position: absolute;
+  left: 0%;
+  height: 2px;
+  background-color: var(--color-secondary);
+  transition: width 0.3s ease-in;
+  -webkit-transition: width 0.3s ease-in;
+  -moz-transition: width 0.3s ease-in;
+  -ms-transition: width 0.3s ease-in;
+  -o-transition: width 0.3s ease-in;
+}
+
+.stepper__progress-bar--portrait {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 2px;
+  transition: height 0.3s ease-in;
+  -webkit-transition: height 0.3s ease-in;
+  -moz-transition: height 0.3s ease-in;
+  -ms-transition: height 0.3s ease-in;
+  -o-transition: height 0.3s ease-in;
+}
+
+.stepper__indicator-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-secondary);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  z-index: 1;
+}
+
+.stepper__indicator-item--filled {
+  background-color: var(--color-secondary);
+}
+
+.stepper__content {
+  margin: 30px auto;
+  width: 100%;
+}
+
+.stepper__footer {
+  display: flex;
+  align-items: center;
+}
+
+.stepper__footer--left {
+  margin-right: auto;
+}
+
+.stepper__footer--right {
+  margin-left: auto;
+}

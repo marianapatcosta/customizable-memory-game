@@ -9,11 +9,7 @@
   justify-content: center;
   background-color: var(--color-secondary);
   box-shadow: 0 2px 2px var(--color-shadow);
-  z-index: 1;
-}
-
-.header--electron {
-  top: 25px;
+  z-index: 2;
 }
 
 .header__title {

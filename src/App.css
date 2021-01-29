@@ -15,6 +15,10 @@
   height: 85px;
 }
 
+.app__header--electron {
+  top: 25px;
+}
+
 .app::-webkit-scrollbar {
   display: none;
 }

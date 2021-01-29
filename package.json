@@ -11,19 +11,25 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "electron": "^11.1.1",
     "electron-is-dev": "^1.2.0",
-    "electron-packager": "^15.2.0",
+    "electron-log": "^4.3.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
+  },
+  "devDependencies": {
+    "electron": "^11.1.1",
+    "electron-builder": "^22.9.1",
+    "electron-packager": "^15.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "start-electron": "electron .",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron-build": "electron-builder",
+    "electron-build-win": "electron-packager . --platform=win32 --out=\"build\" --overwrite --icon=\"./public/memory.png\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,5 +45,25 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "build": {
+    "appId": "memory-game",
+    "extends": null,
+    "mac": {
+      "icon": "./public/memory.png",
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "icon": "./public/memory.png"
+    },
+    "files": [
+      "*.js",
+      "build/**/*",
+      "./public/electron.js",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "public"
+    }
   }
 }

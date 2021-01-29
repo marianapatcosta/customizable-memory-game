@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import "./Toast.css";
 
-const Toast = ({ message, type = 'info', className, onClean }) => {
-
+const Toast = ({ message, type = "info", className, style, onClean }) => {
   const getTypeClass = () => {
     const toastTypesClasses = {
       alert: "toast--alert",
@@ -20,7 +19,11 @@ const Toast = ({ message, type = 'info', className, onClean }) => {
   }, [message, onClean]);
 
   return (
-    <div className={`toast ${getTypeClass()} ${className}`} type={type}>
+    <div
+      className={`toast ${getTypeClass()} ${className}`}
+      style={style}
+      type={type}
+    >
       <div className="toast__message">{message}</div>
     </div>
   );

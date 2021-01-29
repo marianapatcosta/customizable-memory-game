@@ -5,6 +5,16 @@ import "./Game.css";
 const Game = ({ gameSetup }) => {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
+  const {
+    cardOrientation,
+    gameCardBackImage,
+    gameCardImages,
+    carouselOrientation,
+    carouselImages,
+    age,
+    balloonImage,
+    birthdayAudio,
+  } = gameSetup;
 
   const startGame = () => setIsGameStarted(true);
   const showGameOver = () => setIsGameOver(true);
@@ -18,12 +28,23 @@ const Game = ({ gameSetup }) => {
       {!isGameStarted && !isGameOver && <GameStart startGame={startGame} />}
       {isGameStarted && !isGameOver && (
         <GameBoard
-          gameSetup={gameSetup}
+          gameSetup={{ cardOrientation, gameCardBackImage, gameCardImages }}
           handleGameOver={showGameOver}
           restartGame={restartGame}
         />
       )}
-      {isGameStarted && isGameOver && <GameOver restartGame={restartGame} />}
+      {isGameStarted && isGameOver && (
+        <GameOver
+          gameSetup={{
+            carouselOrientation,
+            carouselImages,
+            age,
+            balloonImage,
+            birthdayAudio,
+          }}
+          restartGame={restartGame}
+        />
+      )}
     </div>
   );
 };
