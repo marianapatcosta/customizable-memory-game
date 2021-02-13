@@ -1,5 +1,5 @@
 .input__wrapper {
-  margin: 10px 0;
+  margin: 1rem 0;
   position: relative;
   width: 100%;
 }
@@ -8,13 +8,13 @@
   display: block;
   color: var(--color-font);
   width: 100%;
-  border: 1px solid var(--color-transparent);
+  border: 0.063rem solid var(--color-transparent);
   background-color: var(--color-secondary);
-  box-shadow: 0 1px 4px var(--color-shadow);
+  box-shadow: 0 0.063rem 0.25rem var(--color-shadow);
   box-sizing: border-box;
-  padding: 5px 10px;
+  padding: 0.3rem 0.625rem;
   position: relative;
-  height: 30px;
+  height: 2rem;
 }
 
 .input:-webkit-autofill,
@@ -22,7 +22,7 @@
 .input:-webkit-autofill:focus,
 .input:-webkit-autofill:active {
   -webkit-text-fill-color: var(--color-font);
-  -webkit-box-shadow: 0 0 0 30px var(--color-primary) inset !important;
+  -webkit-box-shadow: 0 0 0 2rem var(--color-primary) inset !important;
 }
 
 .input--error {
@@ -43,9 +43,10 @@
   color: var(--color-red);
   font-weight: bold;
   font-size: 90%;
-  margin-top: 5px;
+  margin-top: 0.3rem;
 }
 
+/* remove arrows in input type number */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

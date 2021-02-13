@@ -11,6 +11,7 @@ const Input = ({ id, isInvalid, label, errorText, ...inputProps }) => {
       )}
       <input
         id={id}
+        name={id}
         {...inputProps}
         className={`input ${isInvalid ? "input--error" : ""}`}
       />

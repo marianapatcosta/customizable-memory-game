@@ -5,8 +5,8 @@ import "./Header.css";
 const Header = ({ title }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
-  const toggleMode = () => {
-    setIsDarkTheme(!isDarkTheme);
+  const toggleMode = (event) => {
+    setIsDarkTheme(event.target.checked);
     const storedData = JSON.parse(localStorage.getItem("userPreferences"));
     localStorage.setItem(
       "userPreferences",
@@ -47,7 +47,7 @@ const Header = ({ title }) => {
           leftLabel={<Emoji label="sun" emoji="☀️" />}
           rightLabel={<Emoji label="moon" emoji="🌙" />}
           checked={isDarkTheme}
-          handleToggle={toggleMode}
+          onChange={toggleMode}
         />
       </div>
     </header>

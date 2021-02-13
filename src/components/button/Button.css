@@ -1,22 +1,17 @@
 .button {
-  padding: 10px 20px;
-  border: 1px solid var(--color-secondary);
-  border-radius: 3px;
+  padding: 0.625rem 1.25rem;
+  border: 0.063rem solid var(--color-secondary);
+  border-radius: 0.3rem;
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  -ms-border-radius: 0.3rem;
+  -o-border-radius: 0.3rem;
   background: var(--color-secondary);
   color: var(--color-font);
   cursor: pointer;
   font-size: 90%;
   font-weight: 700;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  min-width: 100px;
-}
-
-.button:focus {
-  border-color: var(--color-secondary);
-  outline: none;
+  min-width: 6.25rem;
 }
 
 .button:hover,

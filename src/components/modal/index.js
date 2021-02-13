@@ -45,6 +45,7 @@ const Modal = ({
               <h4 className="modal__header--title">{header}</h4>
               <button
                 className="modal__header--close"
+                aria-label="close modal"
                 type="button"
                 onClick={onClose}
               >

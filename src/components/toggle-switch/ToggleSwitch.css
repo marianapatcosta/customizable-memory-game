@@ -16,8 +16,8 @@
 }
 
 .toggle-switch__label {
-  line-height: 12px;
-  padding: 0 2px;
+  line-height: 0.75rem;
+  padding: 0 0.125rem;
   align-self: center;
   font-size: 95%;
   font-style: italic;
@@ -41,16 +41,17 @@
   justify-content: space-between;
   align-items: flex-end;
   background-color: var(--color-primary);
-  border-radius: 34px;
-  border: 1px solid var(--color-orange);
+  border-radius: 2rem;
+  border: 0.063rem solid var(--color-highlight);
   cursor: pointer;
-  height: 18px;
-  width: 38px;
+  height: 1rem;
+  width: 2.4rem;
   line-height: 85%;
   position: relative;
-  padding: 2px;
+  padding: 0.125rem;
   transition: 0.4s;
   -webkit-transition: 0.4s;
+  margin-left: 0.5rem;
 }
 
 .toggle-switch__slider:hover {
@@ -58,17 +59,15 @@
 }
 
 .toggle-switch__slider:before {
-  background-color: var(--color-orange);
+  background-color: var(--color-highlight);
   border-radius: 50%;
-  box-shadow: 0 2px 2px var(--color-orange);
+  box-shadow: 0 2px 2px var(--color-highlight);
   content: "";
-  height: 22px;
-  width: 22px;
-  left: 0;
-  top: 0;
-  bottom: 0;
+  height: 1.3rem;
+  width: 1.3rem;
+  left: -0.063rem;
+  bottom: 0.015rem;
   margin: auto 0;
-  bottom: 0px;
   position: absolute;
   transition: 0.4s;
   -webkit-transition: 0.4s;
@@ -80,19 +79,34 @@
 
 .toggle-switch__slider--checked:before {
   opacity: 1;
-  transform: translateX(21px);
-  -webkit-transform: translateX(21px);
-  -moz-transform: translateX(21px);
-  -ms-transform: translateX(21px);
-  -o-transform: translateX(21px);
+  transform: translateX(1.5rem);
+  -webkit-transform: translateX(1.5rem);
+  -moz-transform: translateX(1.5rem);
+  -ms-transform: translateX(1.5rem);
+  -o-transform: translateX(1.5rem);
 }
 
 .toggle-switch__slider--disabled {
-  border: 1px solid var(--color-disabled);
-  opacity: 0.3; 
+  border: 0.063rem solid var(--color-disabled);
+  opacity: 0.3;
 }
 
 .toggle-switch__slider--disabled:before {
   background-color: var(--color-disabled);
   opacity: 0.8;
+}
+
+.toggle-switch__input {
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+}
+
+input:focus + .toggle-switch__slider {
+  /*  when focus, adds a border to its sibling StyledCheckboxToggle */
+  outline: 0.125rem solid var(--color-highlight);
+}
+
+:focus:not(:focus-visible) + .toggle-switch__slider {
+  outline: none;
 }

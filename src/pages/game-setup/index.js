@@ -59,7 +59,6 @@ const GameSetup = ({ handleSubmit }) => {
       return;
     }
 
-    console.log(e.target.files);
     if (e.target.files.length > maxNumberOfFiles) {
       setToastData({
         message: `you uploaded ${e.target.files.length} files. Only the first ${maxNumberOfFiles} files will be considered.`,
@@ -122,23 +121,20 @@ const GameSetup = ({ handleSubmit }) => {
 
   const renderStep1 = () => (
     <div>
-      <h2 className="game-setup__step-title">Game card customization</h2>
-      <Image
-        className="game-setup__step-image"
-        src={GameCardsExample}
-      />
+      <h3 className="game-setup__step-title">Game card customization</h3>
+      <Image className="game-setup__step-image" src={GameCardsExample} />
       <div className="game-setup__form-item">
-        <h3 className="game-setup__form-item-title">card orientation</h3>
-        <div className="game-setup__form-item-radio">
+        <h4 className="game-setup__form-item-title">card orientation</h4>
+        <div className="game-setup__form-item-radio" role="radiogroup">
           {Object.values(ORIENTATIONS).map((orientation, index) => (
             <RadioButton
               key={`radio-${index + Math.random()}`}
-              id={`{orientation-${orientation}}`}
+              id={`orientation-${orientation}`}
               className={"game-setup__radio"}
-              name={cardOrientation}
+              name={'card-orientation'}
               isSelected={cardOrientation === orientation}
               label={orientation}
-              onClick={() => setCardOrientation(orientation)}
+              onChange={() => setCardOrientation(orientation)}
             />
           ))}
         </div>
@@ -185,26 +181,20 @@ const GameSetup = ({ handleSubmit }) => {
 
   const renderStep2 = () => (
     <div>
-      <h2 className="game-setup__step-title">Photo slider customization</h2>
-      <Image
-        className="game-setup__step-image"
-        src={SlideExample}
-      />
+      <h3 className="game-setup__step-title">Photo slider customization</h3>
+      <Image className="game-setup__step-image" src={SlideExample} />
       <div className="game-setup__form-item">
-        <h3 className="game-setup__form-item-title">
-          {" "}
-          photo orientation
-        </h3>
-        <div className="game-setup__form-item-radio">
+        <h4 className="game-setup__form-item-title">photo orientation</h4>
+        <div className="game-setup__form-item-radio" role="radiogroup">
           {Object.values(ORIENTATIONS).map((orientation, index) => (
             <RadioButton
               key={`radio-${index + Math.random()}`}
-              id={`{orientation-${orientation}}`}
+              id={`orientation-${orientation}`}
               className={"game-setup__radio"}
-              name={carouselOrientation}
+              name={'slider-orientation'}
               isSelected={carouselOrientation === orientation}
               label={orientation}
-              onClick={() => setCarouselOrientation(orientation)}
+              onChange={() => setCarouselOrientation(orientation)}
             />
           ))}
         </div>
@@ -229,15 +219,12 @@ const GameSetup = ({ handleSubmit }) => {
 
   const renderStep3 = () => (
     <div>
-      <h2 className="game-setup__step-title">Balloons customization</h2>
-      <Image
-        className="game-setup__step-image"
-        src={BalloonsExample}
-      />
+      <h3 className="game-setup__step-title">Balloons customization</h3>
+      <Image className="game-setup__step-image" src={BalloonsExample} />
       <div className="game-setup__form-item">
-        <h3 className="game-setup__form-item-title game-setup__form-item-title--input">
+        <h4 className="game-setup__form-item-title game-setup__form-item-title--input">
           age
-        </h3>
+        </h4>
         <Input
           id={"nr-of-cards"}
           min={MIN_AGE}

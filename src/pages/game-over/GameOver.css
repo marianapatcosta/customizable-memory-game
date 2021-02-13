@@ -6,8 +6,8 @@
 
 .game-over__title {
   width: 100%;
-  margin: 10px auto;
-  margin-bottom: 10px;
+  margin: 0.625rem auto;
+  margin-bottom: 0.625rem;
   line-height: 2rem;
   animation: text 2s ease infinite;
   -webkit-animation: text 2s ease infinite;
@@ -21,18 +21,18 @@
 }
 
 .game-over__balloons {
-  margin: 20px 10px;
+  margin: 1.25rem 0.625rem;
 }
 
 .game-over__balloon {
   display: inline-block;
-  width: 120px;
-  height: 145px;
+  width: 7.5rem;
+  height: 9rem;
   background: var(--color-secondary);
   border-radius: 50%;
   position: relative;
-  box-shadow: inset -10px -10px 0 rgba(0, 0, 0, 0.07);
-  margin-right: 10px;
+  box-shadow: inset -0.625rem -0.625rem 0 rgba(0, 0, 0, 0.07);
+  margin-right: 0.625rem;
   transition: transform 0.5s ease;
   animation: balloons 4s ease-in-out infinite;
   transform-origin: bottom center;
@@ -44,22 +44,22 @@
 
 .game-over__balloon:before {
   content: "▲";
-  font-size: 20px;
+  font-size: 1.25rem;
   color: #5979a6;
   display: block;
   text-align: center;
   width: 100%;
   position: absolute;
-  bottom: -12px;
+  bottom: -0.75rem;
 }
 
 .game-over__balloon:after {
   display: inline-block;
-  top: 153px;
-  left: 60px;
+  top: 9.6rem;
+  left: 3.75rem;
   position: absolute;
-  height: 250px;
-  width: 1px;
+  height: 15.6rem;
+  width: 0.063rem;
   content: "";
   background: rgba(0, 0, 0, 0.2);
 }
@@ -82,7 +82,7 @@
 }
 
 .game-over__balloon--number {
-  line-height: 120px;
+  line-height: 7.5rem;
   color: #eec662;
   font-size: 500%;
   animation: numbers 2s ease-in-out infinite alternate;
@@ -90,12 +90,12 @@
 }
 
 .game-over__balloon--image {
-  line-height: 120px;
+  line-height: 7.5rem;
   color: #eec662;
   text-align: center;
   width: 100%;
-  font-size: 75px;
-  margin-top: 10px;
+  font-size: 4.7rem;
+  margin-top: 0.625rem;
   opacity: 0.3;
   border-radius: 50%;
   background-color: #95e2ac;
@@ -106,10 +106,10 @@
 }
 
 .game-over__party-hat {
-  margin-right: 30px;
-  width: 80px;
+  margin-right: 2rem;
+  width: 5rem;
   animation: party-hat 3s ease-in-out infinite;
-  -webkit-animation: party-hat 2s ease-in-out infinite;
+  -webkit-animation: party-hat 3s ease-in-out infinite;
 }
 
 .game-over__body {
@@ -118,7 +118,7 @@
   position: relative;
   align-items: center;
   justify-content: center;
-  margin: 10px 20px 30px;
+  margin: 0.625rem 1.25rem 2rem;
 }
 
 .game-over__body--bottom {
@@ -128,14 +128,14 @@
 }
 
 .game-over__button {
-  margin-top: 10px;
+  margin-top: 0.625rem;
   animation: button 2s ease-in-out infinite alternate;
   -webkit-animation: button 2s ease-in-out infinite alternate;
 }
 
 @media only screen and (min-width: 767px) {
   .game-over__balloons {
-    margin-left: 30px;
+    margin-left: 2rem;
   }
 
   .game-over__body {
@@ -143,12 +143,12 @@
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-evenly;
-    margin: 10px 50px 30px;
+    margin: 0.625rem 3.1rem 2rem;
   }
 
   .game-over__party-hat {
-    margin-right: 30px;
-    width: 100px;
+    margin-right: 2rem;
+    width: 6.25rem;
   }
 }
 
@@ -162,12 +162,12 @@
     -o-transform: translateY(0) rotate(-8deg);
   }
   50% {
-    transform: translateY(-30px) rotate(8deg);
-    -webkit-transform: translateY(-30px) rotate(8deg);
-    -moz-transform: translateY(-30px) rotate(8deg);
-    -ms-transform: translateY(-30px) rotate(8deg);
-    -o-transform: translateY(-30px) rotate(8deg);
-  }
+    transform: translateY(-2rem) rotate(8deg);
+    -webkit-transform: translateY(-2rem) rotate(8deg);
+    -moz-transform: translateY(-2rem) rotate(8deg);
+    -ms-transform: translateY(-2rem) rotate(8deg);
+    -o-transform: translateY(-2rem) rotate(8deg);
+}
 }
 
 @keyframes party-hat {
@@ -200,17 +200,17 @@
 
 @keyframes button {
   from {
-    text-shadow: 0 0 10px var(--color-blue), 0 0 20px var(--color-blue),
-      0 0 30px var(--color-blue), 0 0 40px var(--color-blue),
-      0 0 50px var(--color-blue), 0 0 60px var(--color-blue),
-      0 0 70px var(--color-blue), 0 0 90px var(--color-blue);
+    text-shadow: 0 0 0.625rem var(--color-blue), 0 0 1.25rem var(--color-blue),
+      0 0 2rem var(--color-blue), 0 0 2.5rem var(--color-blue),
+      0 0 3.1rem var(--color-blue), 0 0 3.75rem var(--color-blue),
+      0 0 4.4rem var(--color-blue), 0 0 5.6rem var(--color-blue);
   }
 
   to {
     color: white;
-    text-shadow: 0 0 20px var(--color-blue), 0 0 30px var(--color-blue),
-      0 0 40px var(--color-blue), 0 0 50px var(--color-blue),
-      0 0 60px var(--color-blue), 0 0 70px var(--color-blue),
-      0 0 80px var(--color-blue), 0 1 90px var(--color-blue);
+    text-shadow: 0 0 1.25rem var(--color-blue), 0 0 1rem var(--color-blue),
+      0 0 2.5rem var(--color-blue), 0 0 3.1rem var(--color-blue),
+      0 0 3.75rem var(--color-blue), 0 0 3.75rem var(--color-blue),
+      0 0 5rem var(--color-blue), 0 1 5.6rem var(--color-blue);
   }
 }

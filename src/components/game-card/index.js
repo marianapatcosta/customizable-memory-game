@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ORIENTATIONS } from "../../constants";
+import { isEventValid } from "../../utils";
 import "./GameCard.css";
 
 const GameCard = ({
@@ -12,6 +13,15 @@ const GameCard = ({
   onClick,
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
+
+  const getAriaLabel = () => {
+    if (isSelected) return `${alt} - Selected`;
+    if (isMatched) return `${alt} - Matched`;
+    return " Press Space or Enter to select this card";
+  };
+
+  const onKeyDown = (e) => isEventValid(e) && onClick();
+
   return (
     <li
       className={`game-card-wrapper  ${
@@ -19,6 +29,10 @@ const GameCard = ({
           ? "game-card-wrapper--landscape"
           : ""
       }`}
+      tabIndex="0"
+      aria-label={getAriaLabel()}
+      onClick={onClick}
+      onKeyDown={onKeyDown}
     >
       <div
         className={`game-card game-card--front ${
@@ -32,15 +46,18 @@ const GameCard = ({
         className={`game-card ${
           isSelected || isMatched ? "game-card--selected-back" : ""
         }`}
-        onClick={onClick}
       >
         {!isLoaded && (
-          <div className={`game-card__image game-card__image--placeholder`}></div>
+          <div
+            className={`game-card__image game-card__image--placeholder`}
+          ></div>
         )}
         <img
-          className={`game-card__image ${!isLoaded ? 'game-card__image--not-loaded' : ''}`}
+          className={`game-card__image ${
+            !isLoaded ? "game-card__image--not-loaded" : ""
+          }`}
           src={gameCardBackImage}
-          alt={'card-back'}
+          alt={"card-back"}
           onLoad={() => setIsLoaded(true)}
         />
       </div>

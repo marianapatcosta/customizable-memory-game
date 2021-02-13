@@ -1,17 +1,17 @@
 .game-card-wrapper {
   list-style: none;
-  width: 150px;
-  height: 210px;
+  width: 9.4rem;
+  height: 13.1rem;
   position: relative;
-  margin: 15px;
+  margin: 1rem;
   transform-style: preserve-3d;
   animation: bounce 1.2s ease-in-out;
   -webkit-animation: bounce 1.2s ease-in-out;
 }
 
 .game-card-wrapper--landscape {
-  width: 210px;
-  height: 150px;
+  width: 13.1rem;
+  height: 9.4rem;
 }
 
 .game-card {
@@ -20,10 +20,10 @@
   position: absolute;
   top: 0;
   left: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  border: 1px solid var(--color-transparent);
-  border-radius: 6px;
-  padding: 5px;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.26);
+  border: 0.063rem solid var(--color-transparent);
+  border-radius: 0.4rem;
+  padding: 0.3rem;
   background: var(--color-white);
   box-sizing: border-box;
   transition: transform 0.5s ease;
@@ -32,8 +32,12 @@
   -ms-transition: transform 0.5s ease;
   -o-transition: transform 0.5s ease;
   backface-visibility: hidden;
-  perspective: 600px;
+  perspective: 37.5rem;
   overflow: hidden;
+  -webkit-border-radius: 0.4rem;
+  -moz-border-radius: 0.4rem;
+  -ms-border-radius: 0.4rem;
+  -o-border-radius: 0.4rem;
 }
 
 .game-card--front {
@@ -61,7 +65,7 @@
 }
 
 .game-card:hover {
-  border: 1px solid var(--color-orange);
+  border: 0.063rem solid var(--color-highlight);
   cursor: pointer;
 }
 
@@ -108,12 +112,12 @@
   }
   50%,
   100% {
-    transform: translateY(230px);
-    -webkit-transform: translateY(230px);
-    -moz-transform: translateY(230px);
-    -ms-transform: translateY(230px);
-    -o-transform: translateY(230px);
-  }
+    transform: translateY(14.4rem);
+    -webkit-transform: translateY(14.4rem);
+    -moz-transform: translateY(14.4rem);
+    -ms-transform: translateY(14.4rem);
+    -o-transform: translateY(14.4rem);
+}
 }
 
 @keyframes bounce {
@@ -123,9 +127,17 @@
     transform: translateY(0);
   }
   40% {
-    transform: translateY(-30px);
-  }
+    transform: translateY(-2rem);
+    -webkit-transform: translateY(-2rem);
+    -moz-transform: translateY(-2rem);
+    -ms-transform: translateY(-2rem);
+    -o-transform: translateY(-2rem);
+}
   60% {
-    transform: translateY(-15px);
-  }
+    transform: translateY(-1rem);
+    -webkit-transform: translateY(-1rem);
+    -moz-transform: translateY(-1rem);
+    -ms-transform: translateY(-1rem);
+    -o-transform: translateY(-1rem);
+}
 }

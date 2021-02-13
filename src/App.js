@@ -17,7 +17,11 @@ const App = () => {
   return (
     <div className="app">
       {isElectronProcess && <MenuBar title="Memory Game" />}
-      <Header className={`${isElectron ? 'app__header--electron' : ''}`} title="Memory Game" isElectron={isElectronProcess} />
+      <Header
+        className={`${isElectron ? "app__header--electron" : ""}`}
+        title="Memory Game"
+        isElectron={isElectronProcess}
+      />
       <div
         className={`app__spacer ${
           isElectronProcess ? "app__spacer--electron" : ""

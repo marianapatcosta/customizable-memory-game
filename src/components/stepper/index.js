@@ -29,40 +29,46 @@ const Stepper = ({
       className={`stepper ${className} ${
         orientation === ORIENTATIONS.PORTRAIT ? "stepper--portrait" : ""
       }`}
+      data-steps={stepsMetadata.length}
     >
-      <div
+      <ul
+        role="group"
+        aria-label="progress"
         className={`stepper__indicator ${
           orientation === ORIENTATIONS.PORTRAIT
             ? "stepper__indicator--portrait"
             : ""
         }`}
       >
-        <div
+        <progress
           className={`stepper__progress-bar ${
             orientation === ORIENTATIONS.PORTRAIT
               ? "stepper__progress-bar--portrait"
               : ""
           }`}
-          style={
-            ORIENTATIONS.PORTRAIT
-              ? { height: `${getProgressBarPercentage()}%` }
-              : { width: `${getProgressBarPercentage()}%` }
-          }
-        />
+          value={getProgressBarPercentage()}
+          max="100"
+        ></progress>
+
         {stepsMetadata.map((step, index) => (
-          <div
+          <li
             key={`step-indicator-${index + Math.random()}`}
+            aria-current={"step"}
             className={`stepper__indicator-item ${
               index <= activeStepIndex ? "stepper__indicator-item--filled" : ""
             }`}
           >
             {index + 1}
-          </div>
+          </li>
         ))}
-      </div>
-      <div className={`${
-        orientation === ORIENTATIONS.PORTRAIT ? "stepper-container--portrait" : ""
-      }`}>
+      </ul>
+      <div
+        className={`${
+          orientation === ORIENTATIONS.PORTRAIT
+            ? "stepper-container--portrait"
+            : ""
+        }`}
+      >
         <div className={`stepper__content ${className}`}>
           {stepsMetadata.map(
             ({ renderContent }, index) =>

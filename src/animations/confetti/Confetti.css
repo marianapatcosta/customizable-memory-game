@@ -9,8 +9,8 @@
 
 .confetti {
   border-radius: 50%;
-  height: 15px;
-  width: 15px;
+  height: 1rem;
+  width: 1rem;
   opacity: 0.9;
   position: absolute;
   animation: confetti 3s ease-in-out -1s infinite;
