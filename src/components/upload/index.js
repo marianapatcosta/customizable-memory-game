@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { Button } from "..";
-import { Close } from "../../assets/icons";
 import "./Upload.css";
 
 const Upload = ({
@@ -33,12 +32,19 @@ const Upload = ({
           type="file"
           multiple={areMultipleFilesAllowed ? "multiple" : ""}
           accept={fileTypes}
-          onChange={(e) => onUpload(e)}
+          onChange={onUpload}
         />
       </div>
       {hasPreview && (!!imagesPreview || !!filesPreview) && (
-        <div className={`upload__preview ${!!filesPreview && !!filesPreview.length ? 'upload__preview--files' : ''}`}>
-          {!!imagesPreview && !!imagesPreview.length &&
+        <div
+          className={`upload__preview ${
+            !!filesPreview && !!filesPreview.length
+              ? "upload__preview--files"
+              : ""
+          }`}
+        >
+          {!!imagesPreview &&
+            !!imagesPreview.length &&
             imagesPreview.map((image, index) => (
               <div
                 className="upload__preview-container"
@@ -47,27 +53,26 @@ const Upload = ({
                 <img
                   className="upload__image-preview"
                   src={image}
-                  alt="upload preview"
+                  alt="uploaded preview"
                 />
-                <img
+                <button
+                  aria-label={"remove uploaded image"}
                   className="upload__preview-close"
-                  alt="close icon"
-                  src={Close}
                   onClick={() => onDeleteFile(index)}
                 />
               </div>
             ))}
-          {!!filesPreview && !!filesPreview.length &&
+          {!!filesPreview &&
+            !!filesPreview.length &&
             filesPreview.map((file, index) => (
               <div
                 className="upload__preview-container"
                 key={`file-preview-${index}`}
               >
-                <p className="upload__file-preview">{file} </p>
-                <img
+                <p className="upload__file-preview">{file}</p>
+                <button
+                  aria-label={"remove uploaded file"}
                   className="upload__preview-close upload__preview-file-close"
-                  alt="close icon"
-                  src={Close}
                   onClick={() => onDeleteFile(index)}
                 />
               </div>

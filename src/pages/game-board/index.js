@@ -3,7 +3,7 @@ import { Button, GameCard, Modal } from "../../components";
 import "./GameBoard.css";
 
 const defineRandomizedCards = (imageFilesAsDataUrl) => {
-  let cards = imageFilesAsDataUrl.map((imageFile, index) => ({
+  let cards = imageFilesAsDataUrl.map((imageFile) => ({
     name: imageFile.name,
     path: imageFile.src,
     isSelected: false,
@@ -119,7 +119,7 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
           <GameCard
             key={`card-${index}`}
             imageSrc={card.path}
-            alt={`card ${index}`}
+            alt={`card ${card.name}`}
             isSelected={card.isSelected}
             isMatched={card.isMatched}
             gameCardBackImage={gameCardBackImage.src}

@@ -2,7 +2,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  height: 25px;
+  height: 1.6rem;
   width: 100vw;
   display: flex;
   align-items: flex-start;
@@ -13,21 +13,21 @@
 }
 
 .menu-bar__title {
-  margin-left: 15px;
+  margin-left: 1rem;
   font-size: 70%;
   font-weight: 700;
-  padding-top: 3px;
+  padding-top: 0.2rem;
 }
 
 .menu-bar__icons {
-  margin-right: 15px;
+  margin-right: 1rem;
   -webkit-app-region: no-drag;
 }
 
 .menu-bar__icon {
-  width: 15px;
-  height: 15px;
-  padding: 5px 10px;
+  width: 1rem;
+  height: 1rem;
+  padding: 0.3rem 0.625rem;
   cursor: pointer;
 }
 

@@ -7,16 +7,16 @@
 .app__spacer {
   left: 0;
   top: 0;
-  height: 60px;
+  height: 3.75rem;
   width: 100vw;
 }
 
 .app__spacer--electron {
-  height: 85px;
+  height: 5.3rem;
 }
 
 .app__header--electron {
-  top: 25px;
+  top: 1.6rem;
 }
 
 .app::-webkit-scrollbar {

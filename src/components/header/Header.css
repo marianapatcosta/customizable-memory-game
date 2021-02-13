@@ -2,18 +2,18 @@
   position: fixed;
   left: 0;
   top: 0;
-  height: 60px;
+  height: 3.75rem;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--color-secondary);
-  box-shadow: 0 2px 2px var(--color-shadow);
+  box-shadow: 0 0.125rem 0.125rem var(--color-shadow);
   z-index: 2;
 }
 
 .header__title {
-  margin-left: 30px;
+  margin-left: 2rem;
   flex: 1 0 auto;
   position: relative;  
   text-align: left;
@@ -21,17 +21,17 @@
 
 .header__title > span {
   position: absolute;
-  color: var(--color-orange);
+  color: var(--color-highlight);
   font-size: 50%;
   font-weight: 400;
   line-height: 0.8rem;
-  padding: 5px;
+  padding: 0.3rem;
   transform: rotate(-30deg);
   -webkit-transform: rotate(-30deg);
   -moz-transform: rotate(-30deg);
   -ms-transform: rotate(-30deg);
   -o-transform: rotate(-30deg);
-  border: 1px solid var(--color-orange);
+  border: 0.063rem solid var(--color-highlight);
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -40,16 +40,16 @@
 }
 
 .header__toggle {
-  margin-right: 30px;
+  margin-right: 2rem;
 }
 
 @media only screen and (min-width: 767px) {
   .header__title { 
     text-align: center;
-    margin-left: 180px;
+    margin-left: 11.25rem;
   }
 
   .header__toggle {
-    margin-right: 50px;
+    margin-right: 3.1rem;
   }  
 }

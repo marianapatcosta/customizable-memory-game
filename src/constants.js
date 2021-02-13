@@ -31,3 +31,18 @@ export const TOAST_TYPES = {
   SUCCESS: "success",
   WARNING: "warning",
 };
+
+export const KEYBOARD_CODES = {
+  ENTER_KEY: 13,
+  ESCAPE_KEY: 27,
+  SPACE_KEY: 32,
+  LEFT_ARROW_KEY: 37,
+  UP_ARROW_KEY: 38,
+  RIGHT_ARROW_KEY: 39,
+  DOWN_ARROW_KEY: 40,
+};
+
+export const PREVIEWS_POSITION = {
+  BEFORE: "before",
+  AFTER: "after",
+};

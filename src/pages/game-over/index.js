@@ -5,8 +5,10 @@ import { PartyHat } from "../../assets/images";
 import { Parabens } from "../../assets/audio";
 import "./GameOver.css";
 
-// const photos = Array.from(Array(6), (item, index) => `./${index}.jpg`);
-
+/* const photos = Array.from(Array(6), (item, index) => ({
+  src: `./${index}.jpg`,
+}));
+ */
 const getAgeNumbers = (age) => {
   if (!age) return { firstAgeNumber: "?", secondAgeNumber: "?" };
   if (age.length === 1) return { firstAgeNumber: "?", secondAgeNumber: age };
@@ -26,9 +28,9 @@ const GameOver = ({ gameSetup, restartGame }) => {
   return (
     <div className="game-over">
       <Confetti />
-      <h1 className="game-over__title">
+      <h2 className="game-over__title">
         Congratulations! <br /> You won!
-      </h1>
+      </h2>
       <div className="game-over__top">
         <div className="game-over__balloons">
           <div className="game-over__balloon">
@@ -53,11 +55,7 @@ const GameOver = ({ gameSetup, restartGame }) => {
             </div>
           </div>
         </div>
-        <img
-          className="game-over__party-hat"
-          src={PartyHat}
-          alt="party hat"
-        />
+        <img className="game-over__party-hat" src={PartyHat} alt="party hat" />
       </div>
       <div className="game-over__body">
         {window.matchMedia("(max-width: 768px)").matches &&
@@ -72,9 +70,7 @@ const GameOver = ({ gameSetup, restartGame }) => {
         <div className="game-over__body--bottom">
           <audio controls autoPlay loop>
             <source
-              src={
-                birthdayAudio.src || Parabens
-              }
+              src={birthdayAudio ? birthdayAudio.src : Parabens}
               type="audio/mpeg"
             ></source>
           </audio>
@@ -85,10 +81,10 @@ const GameOver = ({ gameSetup, restartGame }) => {
           />
         </div>
         {window.matchMedia("(min-width: 767px)").matches &&
-          !!carouselImages.length && (
+          !!carouselImages?.length && (
             <div className="game-over__carousel">
               <Carousel
-                items={carouselImages.map(({ src }) => src)}
+                items={carouselImages}
                 imageOrientation={carouselOrientation}
               />
             </div>
