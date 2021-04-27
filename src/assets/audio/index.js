@@ -1,3 +1,3 @@
-import Parabens from "./parabens.mp3";
+import AudioDefault from "./audio-default.mp3";
 
-export { Parabens };
+export { AudioDefault };

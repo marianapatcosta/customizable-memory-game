@@ -1,0 +1,50 @@
+.goodbye {
+  height: 80vh;
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+.goodbye__title {
+  margin: 2rem auto;
+  font-size: 180%;
+}
+
+.goodbye__subtitle {
+  margin-top: 3rem;
+  font-size: 160%;
+}
+
+.goodbye__hand {
+  margin: 12rem auto;
+  font-size: 12.5rem;
+  animation: waving 2s infinite;
+  -webkit-animation: waving 2s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes waving {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

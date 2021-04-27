@@ -1,6 +1,11 @@
+.game-board {
+  padding-top: 1.5rem;
+}
+
 .game-board__title {
-  margin: 1rem auto;
+  text-align: center;
   font-size: 180%;
+  margin-bottom: 3.5rem;
 }
 
 .game-board__card-list {
@@ -11,12 +16,11 @@
 }
 
 .game-board__footer {
-  margin: 1rem 0;
+  margin: 3.5rem auto;
 }
 
-
 @media only screen and (min-width: 767px) {
-  .game-board__title {
-    margin: 1rem 0;
+  .game-board {
+    padding-top: 2.5rem;
   }
 }

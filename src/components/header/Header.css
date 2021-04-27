@@ -2,7 +2,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  height: 3.75rem;
+  height: 4rem;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -13,9 +13,7 @@
 }
 
 .header__title {
-  margin-left: 2rem;
-  flex: 1 0 auto;
-  position: relative;  
+  position: relative;
   text-align: left;
 }
 
@@ -40,16 +38,12 @@
 }
 
 .header__toggle {
-  margin-right: 2rem;
+  position: absolute;
+  right: 2rem;
 }
 
 @media only screen and (min-width: 767px) {
-  .header__title { 
+  .header__title {
     text-align: center;
-    margin-left: 11.25rem;
   }
-
-  .header__toggle {
-    margin-right: 3.1rem;
-  }  
 }

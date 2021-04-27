@@ -99,10 +99,31 @@
   align-items: center;
 }
 
-.stepper__footer--left {
+.stepper__footer-button {
+  min-width: 3rem;
+  background: none;
+}
+
+.stepper__footer-button--left {
   margin-right: auto;
 }
 
-.stepper__footer--right {
+.stepper__footer-button--left img {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+}
+
+.stepper__footer-button--right {
   margin-left: auto;
+}
+
+.stepper__footer-button--right img {
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
 }

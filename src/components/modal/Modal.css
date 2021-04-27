@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(var(--color-shadow), 0.9);
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,14 +17,15 @@
   left: 50%;
   width: 50%;
   background-color: var(--color-primary);
-  box-shadow: 0 0.125rem 0.5rem rgba(var(--color-black), 0.26);
+  box-shadow: 0 0.125rem 0.5rem rgb(0, 0, 0);
   border-radius: 0.5rem;
   -webkit-border-radius: 0.5rem;
   -moz-border-radius: 0.5rem;
   -ms-border-radius: 0.5rem;
   -o-border-radius: 0.5rem;
   transform: translate(-50%, -50%);
-  width: 40%;
+  width: 20rem;
+  min-height: 7rem;
   z-index: 10;
   font-weight: 700;
 }
@@ -60,28 +61,21 @@
 
 .modal__body,
 .modal__footer {
-  padding: 0.625rem 0.3rem;
+  padding: 1rem;
+}
+
+.modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal__footer--button {
-  border: none;
-  border-radius: 10%;
-  -webkit-border-radius: 10%;
-  -moz-border-radius: 10%;
-  -ms-border-radius: 10%;
-  -o-border-radius: 10%;
-  box-shadow: none;
-  background-color: var(--color-transparent);
+  min-width: 5rem;
   font-weight: 700;
-  padding: 0.3rem 0.625rem;
+  padding: 0.3rem;
 }
 
-.modal__footer--button:focus {
-  border: 0.063rem solid var(--color-yellow);
-  outline: none;
-}
-
-.modal__footer--button:hover {
-  background-color: var(--color-yellow);
-  cursor: pointer;
+.modal__footer--button:nth-child(2) {
+  margin-left: 1.5rem;
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Emoji, ToggleSwitch } from "../";
 import "./Header.css";
 
-const Header = ({ title }) => {
+const Header = ({ title, className }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const toggleMode = (event) => {
@@ -33,7 +33,7 @@ const Header = ({ title }) => {
   }, [isDarkTheme, setTheme]);
 
   return (
-    <header className={`header`}>
+    <header className={`header ${className}`}>
       <h2 className="header__title">
         {title}
         <span>
@@ -43,7 +43,6 @@ const Header = ({ title }) => {
       </h2>
       <div className="header__toggle">
         <ToggleSwitch
-          label="Theme color"
           leftLabel={<Emoji label="sun" emoji="☀️" />}
           rightLabel={<Emoji label="moon" emoji="🌙" />}
           checked={isDarkTheme}

@@ -8,8 +8,8 @@ import "./Carousel.css";
 const Carousel = ({
   title,
   items,
-  hasPreviews = true,
-  imageOrientation = "landscape",
+  hasPreviews = false,
+  imageOrientation = ORIENTATIONS.LANDSCAPE,
 }) => {
   const [presentingItemIndex, setPresentingItemIndex] = useState(0);
   const [isAutomaticView, setAutomaticView] = useState(true);
@@ -59,7 +59,7 @@ const Carousel = ({
         <Image
           className="carousel__previews-image"
           role="button"
-          tabIndex="0"
+          tabIndex={0}
           src={isBefore ? items[beforePreviousIndex].src : items[nextIndex].src}
           alt={`preview ${
             isBefore ? items[beforePreviousIndex].name : items[nextIndex].name
@@ -74,6 +74,8 @@ const Carousel = ({
         />
         <Image
           className="carousel__previews-image"
+          role="button"
+          tabIndex={0}
           src={isBefore ? items[previousIndex].src : items[afterNextIndex].src}
           alt={`preview ${
             isBefore ? items[previousIndex].src : items[afterNextIndex].name
@@ -92,8 +94,23 @@ const Carousel = ({
 
   return (
     <div className="carousel" role="listbox">
+      <div
+        className={`carousel__header ${
+          imageOrientation === ORIENTATIONS.LANDSCAPE
+            ? "carousel__header--landscape"
+            : ""
+        }`}
+      >
+        <h2 className="carousel__header-title">{title}</h2>
+        <ToggleSwitch
+          className="carousel__header-toggle"
+          leftLabel="off"
+          rightLabel="on"
+          checked={isAutomaticView}
+          onChange={toggleAutomaticView}
+        />
+      </div>
       <div className="carousel__content">
-        {hasPreviews && renderPreviews(PREVIEWS_POSITION.BEFORE)}
         <div
           className={`carousel__selected ${
             imageOrientation === ORIENTATIONS.LANDSCAPE
@@ -101,65 +118,57 @@ const Carousel = ({
               : ""
           }`}
         >
-          <div className={`carousel__header`}>
-            <h2 className="carousel__header-title">{title}</h2>
-
-            <ToggleSwitch
-              className="carousel__header-toggle"
-              leftLabel="off"
-              rightLabel="on"
-              checked={isAutomaticView}
-              onChange={toggleAutomaticView}
-            />
-          </div>
-          <span
-            role="button"
-            title="previous"
-            tabIndex="0"
-            className="carousel__chevron carousel__chevron-left"
-            onClick={handlePreviousItemClick}
-            onKeyDown={(event) =>
-              isEventValid(event) && handlePreviousItemClick()
-            }
+          {hasPreviews && renderPreviews(PREVIEWS_POSITION.BEFORE)}
+          <div
+            className={`carousel__image-wrapper ${
+              imageOrientation === ORIENTATIONS.LANDSCAPE
+                ? "carousel__image-wrapper--landscape"
+                : ""
+            }`}
           >
-            <img src={Chevron} alt="previous item" />
-          </span>
-          <Image
-            className="carousel__selected-image"
-            src={items[presentingItemIndex].src}
-            alt={items[presentingItemIndex].name}
-          />
-          <span
-            role="button"
-            title="next"
-            tabIndex="0"
-            className="carousel__chevron carousel__chevron-right"
-            onClick={handleNextItemClick}
-            onKeyDown={(event) => isEventValid(event) && handleNextItemClick()}
-            ref={chevronRef}
-          >
-            <img src={Chevron} alt="next item" />
-          </span>
-          <span className="carousel__bar">
+            <button
+              aria-label="click to watch next image"
+              className="carousel__chevron carousel__chevron-left"
+              onClick={handlePreviousItemClick}
+            >
+              <img src={Chevron} alt="left chevron" />
+            </button>
             {items.map((item, index) => (
-              <span
-                role="button"
-                tabIndex="0"
-                key={`carousel-item-${index * Math.random()}`}
-                className={`carousel__bar-item ${
-                  index <= presentingItemIndex
-                    ? "carousel__bar-item--shown"
+              <Image
+                key={`slide-image-${item.name}`}
+                className={`carousel__image ${
+                  presentingItemIndex === index
+                    ? "carousel__image--selected"
                     : ""
                 }`}
-                onClick={() => handleItemClick(index)}
-                onKeyDown={(event) =>
-                  isEventValid(event) && handleItemClick(index)
-                }
+                src={item.src}
+                alt={item.name}
               />
             ))}
-          </span>
+            <button
+              ref={chevronRef}
+              aria-label="click to watch next image"
+              className="carousel__chevron carousel__chevron-right"
+              onClick={handleNextItemClick}
+            >
+              <img src={Chevron} alt="right chevron" />
+            </button>
+            <div className="carousel__bar">
+              {items.map((item, index) => (
+                <button
+                  key={`carousel-item-${index * Math.random()}`}
+                  className={`carousel__bar-item ${
+                    index <= presentingItemIndex
+                      ? "carousel__bar-item--shown"
+                      : ""
+                  }`}
+                  onClick={() => handleItemClick(index)}
+                />
+              ))}
+            </div>
+          </div>
+          {hasPreviews && renderPreviews(PREVIEWS_POSITION.AFTER)}
         </div>
-        {hasPreviews && renderPreviews(PREVIEWS_POSITION.AFTER)}
       </div>
     </div>
   );

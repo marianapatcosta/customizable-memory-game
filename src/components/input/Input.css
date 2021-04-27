@@ -41,7 +41,6 @@
 
 .input__error {
   color: var(--color-red);
-  font-weight: bold;
   font-size: 90%;
   margin-top: 0.3rem;
 }
@@ -55,6 +54,6 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }

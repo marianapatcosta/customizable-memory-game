@@ -13,12 +13,12 @@
   width: 1rem;
   opacity: 0.9;
   position: absolute;
-  animation: confetti 3s ease-in-out -1s infinite;
   transform-origin: left top;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+  animation: confetti 3s ease-in-out -1s infinite;
   -webkit-animation: confetti 3s ease-in-out -1s infinite;
 }
 

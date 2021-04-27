@@ -46,7 +46,6 @@ const Modal = ({
               <button
                 className="modal__header--close"
                 aria-label="close modal"
-                type="button"
                 onClick={onClose}
               >
                 <span aria-hidden="true">x</span>
