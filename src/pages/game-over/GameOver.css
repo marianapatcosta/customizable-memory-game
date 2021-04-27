@@ -1,7 +1,8 @@
 .game-over {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  padding-top: 1.5rem;
+  height: 90%;
 }
 
 .game-over__title {
@@ -28,7 +29,7 @@
   display: inline-block;
   width: 7.5rem;
   height: 9rem;
-  background: var(--color-secondary);
+  background-color: var(--color-secondary);
   border-radius: 50%;
   position: relative;
   box-shadow: inset -0.625rem -0.625rem 0 rgba(0, 0, 0, 0.07);
@@ -58,14 +59,14 @@
   top: 9.6rem;
   left: 3.75rem;
   position: absolute;
-  height: 15.6rem;
+  height: 15rem;
   width: 0.063rem;
   content: "";
-  background: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .game-over__balloon:nth-child(2) {
-  background: #ce8355;
+  background-color: #ce8355;
   animation-duration: 5s;
 }
 
@@ -74,11 +75,11 @@
 }
 
 .game-over__balloon:nth-child(3) {
-  background: #95e2ac;
+  background-color: #95e2ac;
   animation-duration: 3s;
 }
 .game-over__balloon:nth-child(3):before {
-  color: #4c7a5a;
+  color: var(--color-green);
 }
 
 .game-over__balloon--number {
@@ -93,8 +94,9 @@
   line-height: 7.5rem;
   color: #eec662;
   text-align: center;
-  width: 100%;
+  width: 95%;
   font-size: 4.7rem;
+  margin: 0 auto;
   margin-top: 0.625rem;
   opacity: 0.3;
   border-radius: 50%;
@@ -119,12 +121,15 @@
   align-items: center;
   justify-content: center;
   margin: 0.625rem 1.25rem 2rem;
+  height: 100%;
 }
 
 .game-over__body--bottom {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: auto;
+  margin-bottom: 3rem;
 }
 
 .game-over__button {
@@ -133,7 +138,28 @@
   -webkit-animation: button 2s ease-in-out infinite alternate;
 }
 
+.game-over__link {
+  position: absolute;
+  font-size: 95%;
+  left: 1em;
+  bottom: 0;
+  height: 2rem;
+}
+
+.game-over__carousel--mobile {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.game-over__carousel--desktop {
+  display: none;
+}
+
 @media only screen and (min-width: 767px) {
+  .game-over {
+    padding-top: 2.5rem;
+  }
+
   .game-over__balloons {
     margin-left: 2rem;
   }
@@ -149,6 +175,18 @@
   .game-over__party-hat {
     margin-right: 2rem;
     width: 6.25rem;
+  }
+
+  .game-over__carousel--mobile {
+    display: none;
+  }
+
+  .game-over__carousel--desktop {
+    display: block;
+  }
+
+  .game-over__link {
+    left: 8rem;
   }
 }
 
@@ -167,7 +205,7 @@
     -moz-transform: translateY(-2rem) rotate(8deg);
     -ms-transform: translateY(-2rem) rotate(8deg);
     -o-transform: translateY(-2rem) rotate(8deg);
-}
+  }
 }
 
 @keyframes party-hat {

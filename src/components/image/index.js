@@ -6,12 +6,13 @@ const Image = ({ className, src, alt, onClick, ...otherProps }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   return (
     <Card className={`image__wrapper ${className}`} {...otherProps}>
-      {!isLoaded && <div className={`image image--placeholder`}></div>}
+      {!isLoaded && <div className={`image image--placeholder`} />}
       <img
         onClick={onClick}
         className={`image  ${!isLoaded ? "image--not-loaded" : ""}`}
         src={src}
         alt={alt}
+        loading="lazy"
         onLoad={() => setIsLoaded(true)}
       />
     </Card>

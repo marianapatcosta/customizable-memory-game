@@ -1,11 +1,13 @@
 .game-start {
   height: 80vh;
   position: relative;
+  padding-top: 1.5rem;
 }
 
 .game-start__title {
   margin: 2rem auto;
   font-size: 180%;
+  text-align: center;
 }
 
 .game-start > Button {
@@ -13,7 +15,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 .game-start__present {
@@ -21,30 +23,37 @@
   height: 55%;
   bottom: -50%;
   left: 50%;
-  font-size: 12.5rem;     
-  animation: pop 1.2s infinite;
+  font-size: 12.5rem;
+  animation: shaking 1.2s infinite;
+  -webkit-animation: shaking 1.2s infinite;
 }
 
-@keyframes pop {
+@media only screen and (min-width: 767px) {
+  .game-start {
+    padding-top: 2.5rem;
+  }
+}
+
+@keyframes shaking {
   0% {
-    transform: translate(-50%, -50%) scale(1.25, 0.75);
+    transform: translate(-50%, -30%) scale(1.25, 0.75);
   }
   50% {
-    transform: translate(-50%, -150%) scale(1, 1);
+    transform: translate(-50%, -130%) scale(1, 1);
   }
   55% {
-    transform: translate(-50%, -150%) rotate(15deg);
+    transform: translate(-50%, -130%) rotate(15deg);
   }
   60% {
-    transform: translate(-50%, -150%) rotate(-15deg);
+    transform: translate(-50%, -130%) rotate(-15deg);
   }
   65% {
-    transform: translate(-50%, -150%) rotate(15deg);
+    transform: translate(-50%, -130%) rotate(15deg);
   }
   70% {
-    transform: translate(-50%, -150%) rotate(-15deg);
+    transform: translate(-50%, -130%) rotate(-15deg);
   }
   100% {
-    transform: translate(-50%, -50%) scale(1.25, 0.75);
+    transform: translate(-50%, -30%) scale(1.25, 0.75);
   }
 }

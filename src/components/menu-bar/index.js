@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Close, Maximize, Minimize, Restore } from "../../assets/icons";
 import { isElectron } from "../../utils";
 import "./MenuBar.css";
+
 const isElectronProcess = isElectron();
 const electron = isElectronProcess && window.require("electron");
 const remote = isElectronProcess && electron.remote;
 
-const Menubar = ({title}) => {
+const Menubar = ({ title }) => {
   const [isWindowMaximized, setIsWindowMaximized] = useState(false);
 
   const handleQuit = () => {
@@ -21,7 +22,7 @@ const Menubar = ({title}) => {
 
   const handleMaximize = () => {
     const window = remote.getCurrentWindow();
-    window.maximize()
+    window.maximize();
     setIsWindowMaximized(true);
   };
 
@@ -33,7 +34,7 @@ const Menubar = ({title}) => {
 
   return (
     <div className="menu-bar">
-    <div className="menu-bar__title">{title}</div>
+      <div className="menu-bar__title">{title}</div>
       <div className="menu-bar__icons">
         <img
           className="menu-bar__icon"

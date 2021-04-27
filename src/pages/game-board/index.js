@@ -15,11 +15,11 @@ const defineRandomizedCards = (imageFilesAsDataUrl) => {
   let temporaryStoredCard;
 
   while (count > 0) {
-    const randomInt = Math.floor(Math.random() * count);
+    const randomIndex = Math.floor(Math.random() * count);
     count--;
     temporaryStoredCard = randomizedCards[count];
-    randomizedCards[count] = randomizedCards[randomInt];
-    randomizedCards[randomInt] = temporaryStoredCard;
+    randomizedCards[count] = randomizedCards[randomIndex];
+    randomizedCards[randomIndex] = temporaryStoredCard;
   }
   return randomizedCards;
 };
@@ -74,9 +74,11 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
   }, [cards, checkGameOver, updateGameCards]);
 
   const handleCardSelection = (index) => {
+    if (cards[index].isMatched) return;
+
     const selectedCards = cards.filter((card) => card.isSelected);
     if (selectedCards.length >= 2) {
-      return setErrorMessage("You can only select 2 cards!");
+      return setErrorMessage("You can only select 2 cards at a time!");
     }
 
     return setCards((prevCards) => {
@@ -103,7 +105,9 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
 
   return (
     <div className="game-board">
-      <h2 className="game-board__title">Select two cards and match them all</h2>
+      <h2 className="game-board__title">
+        Select 2 cards at a time until you match them all
+      </h2>
       {errorMessage && (
         <Modal
           confirmationModal={isConfirmationModal}

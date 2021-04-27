@@ -12,6 +12,12 @@ export const AUDIO_FILE_TYPES = {
   AAC: ".aac",
 };
 
+export const OPERATIVE_SYSTEMS = {
+  WINDOWS: "Windows",
+  MACOS: "MacOS",
+  LINUX: "Linux",
+};
+
 export const MAX_GAME_CARDS = 16;
 
 export const MIN_GAME_CARDS = 4;
@@ -33,13 +39,13 @@ export const TOAST_TYPES = {
 };
 
 export const KEYBOARD_CODES = {
-  ENTER_KEY: 13,
-  ESCAPE_KEY: 27,
-  SPACE_KEY: 32,
-  LEFT_ARROW_KEY: 37,
-  UP_ARROW_KEY: 38,
-  RIGHT_ARROW_KEY: 39,
-  DOWN_ARROW_KEY: 40,
+  ENTER_KEY: "Enter",
+  ESCAPE_KEY: "Escape",
+  SPACE_KEY: "Space",
+  LEFT_ARROW_KEY: "ArrowLeft",
+  UP_ARROW_KEY: "ArrowUp",
+  RIGHT_ARROW_KEY: "ArrowRight",
+  DOWN_ARROW_KEY: "ArrowDown",
 };
 
 export const PREVIEWS_POSITION = {

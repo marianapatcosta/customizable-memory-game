@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { GameBoard, GameOver, GameStart } from "../";
 import "./Game.css";
 
-const Game = ({ gameSetup }) => {
+const Game = ({ gameSetup, backToSetup }) => {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
   const {
@@ -24,7 +24,7 @@ const Game = ({ gameSetup }) => {
   };
 
   return (
-    <div className="game">
+    <>
       {!isGameStarted && !isGameOver && <GameStart startGame={startGame} />}
       {isGameStarted && !isGameOver && (
         <GameBoard
@@ -43,9 +43,10 @@ const Game = ({ gameSetup }) => {
             birthdayAudio,
           }}
           restartGame={restartGame}
+          backToSetup={backToSetup}
         />
       )}
-    </div>
+    </>
   );
 };
 

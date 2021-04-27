@@ -2,20 +2,20 @@ import React from "react";
 import { Button, Carousel, Emoji } from "../../components";
 import { Confetti } from "../../animations";
 import { PartyHat } from "../../assets/images";
-import { Parabens } from "../../assets/audio";
+import { isElectron } from "../../utils";
 import "./GameOver.css";
 
-/* const photos = Array.from(Array(6), (item, index) => ({
+const photos = Array.from(Array(4), (item, index) => ({
   src: `./${index}.jpg`,
 }));
- */
+
 const getAgeNumbers = (age) => {
   if (!age) return { firstAgeNumber: "?", secondAgeNumber: "?" };
   if (age.length === 1) return { firstAgeNumber: "?", secondAgeNumber: age };
   return { firstAgeNumber: age[0], secondAgeNumber: age[1] };
 };
 
-const GameOver = ({ gameSetup, restartGame }) => {
+const GameOver = ({ gameSetup, restartGame, backToSetup }) => {
   const {
     carouselOrientation,
     carouselImages,
@@ -24,6 +24,7 @@ const GameOver = ({ gameSetup, restartGame }) => {
     birthdayAudio,
   } = gameSetup;
   const { firstAgeNumber, secondAgeNumber } = getAgeNumbers(age);
+  const isElectronProcess = isElectron();
 
   return (
     <div className="game-over">
@@ -58,37 +59,39 @@ const GameOver = ({ gameSetup, restartGame }) => {
         <img className="game-over__party-hat" src={PartyHat} alt="party hat" />
       </div>
       <div className="game-over__body">
-        {window.matchMedia("(max-width: 768px)").matches &&
-          !!carouselImages.length && (
-            <div className="game-over__carousel">
-              <Carousel
-                items={carouselImages.map(({ src }) => src)}
-                imageOrientation={carouselOrientation}
-              />
-            </div>
-          )}
+        {!!carouselImages.length && (
+          <div className="game-over__carousel--mobile">
+            <Carousel
+              items={carouselImages}
+              imageOrientation={carouselOrientation}
+            />
+          </div>
+        )}
         <div className="game-over__body--bottom">
-          <audio controls autoPlay loop>
-            <source
-              src={birthdayAudio ? birthdayAudio.src : Parabens}
-              type="audio/mpeg"
-            ></source>
-          </audio>
+          {!!birthdayAudio && (
+            <audio controls autoPlay loop>
+              <source src={birthdayAudio.src} type="audio/mpeg" />
+            </audio>
+          )}
           <Button
             className="game-over__button"
             onClick={restartGame}
             label="Play Again"
           />
         </div>
-        {window.matchMedia("(min-width: 767px)").matches &&
-          !!carouselImages?.length && (
-            <div className="game-over__carousel">
-              <Carousel
-                items={carouselImages}
-                imageOrientation={carouselOrientation}
-              />
-            </div>
-          )}
+        {!isElectronProcess && (
+          <button className="button-link game-over__link" onClick={backToSetup}>
+            Back to setup
+          </button>
+        )}
+        {!!carouselImages?.length && (
+          <div className="game-over__carousel--desktop">
+            <Carousel
+              items={carouselImages}
+              imageOrientation={carouselOrientation}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

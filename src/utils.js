@@ -3,8 +3,8 @@ const { SPACE_KEY, ENTER_KEY } = KEYBOARD_CODES;
 
 export const isEventValid = (event) =>
   event.type === "click" ||
-  event.which === SPACE_KEY ||
-  event.which === ENTER_KEY;
+  event.code === SPACE_KEY ||
+  event.code === ENTER_KEY;
 
 export const isElectron = () => {
   // Renderer process

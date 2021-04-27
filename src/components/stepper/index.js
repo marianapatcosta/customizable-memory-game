@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import { Button, Step } from "..";
+import { DoubleChevron } from "../../assets/icons";
 import { ORIENTATIONS } from "../../constants";
 import "./Stepper.css";
 
 const Stepper = ({
   className,
   stepsMetadata,
+  activeStep,
+  buttonLabel = "submit",
   orientation = ORIENTATIONS.LANDSCAPE,
   onSubmit,
 }) => {
-  const [activeStepIndex, setActiveStepIndex] = useState(0);
+  const [activeStepIndex, setActiveStepIndex] = useState(activeStep || 0);
   const progressPerStep = 100 / (stepsMetadata.length - 1);
+  const hasNextButton =
+    activeStepIndex !== stepsMetadata.length - 1 ||
+    (activeStepIndex === stepsMetadata.length - 1 && !!onSubmit);
 
   const handleNextStepClick = () => {
     if (activeStepIndex === stepsMetadata.length - 1) return;
@@ -48,7 +54,7 @@ const Stepper = ({
           }`}
           value={getProgressBarPercentage()}
           max="100"
-        ></progress>
+        />
 
         {stepsMetadata.map((step, index) => (
           <li
@@ -84,23 +90,32 @@ const Stepper = ({
         <div className={`stepper__footer ${className}`}>
           {activeStepIndex > 0 && (
             <Button
-              className="stepper__footer--left"
-              label="previous"
+              className="stepper__footer-button stepper__footer-button--left"
+              aria-label="click to go to previous step"
+              icon={DoubleChevron}
               onClick={handlePreviousStepClick}
             />
           )}
-          <Button
-            className="stepper__footer--right"
-            label={
-              activeStepIndex === stepsMetadata.length - 1 ? "submit" : "next"
-            }
-            disabled={!stepsMetadata[activeStepIndex].isValid}
-            onClick={
-              activeStepIndex === stepsMetadata.length - 1
-                ? onSubmit
-                : handleNextStepClick
-            }
-          />
+          {hasNextButton && (
+            <Button
+              className="stepper__footer-button stepper__footer-button--right"
+              aria-label="click to go to previous step"
+              icon={
+                activeStepIndex !== stepsMetadata.length - 1
+                  ? DoubleChevron
+                  : ""
+              }
+              label={
+                activeStepIndex === stepsMetadata.length - 1 ? buttonLabel : ""
+              }
+              disabled={!stepsMetadata[activeStepIndex].isValid}
+              onClick={
+                activeStepIndex === stepsMetadata.length - 1
+                  ? onSubmit
+                  : handleNextStepClick
+              }
+            />
+          )}
         </div>
       </div>
     </div>
