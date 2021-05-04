@@ -106,7 +106,7 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
   return (
     <div className="game-board">
       <h2 className="game-board__title">
-        Select 2 cards at a time until you match them all
+        Select 2 cards at a time until all of them are matched
       </h2>
       {errorMessage && (
         <Modal

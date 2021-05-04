@@ -163,7 +163,6 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
 
   const getGameSetup = () => {
     if (!!Object.keys(gameSetup).length) return gameSetup;
-    console.log(666, encodeURIComponent(AudioDefault));
     return {
       cardOrientation,
       gameCardBackImage: getCardBack(),

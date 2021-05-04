@@ -1,12 +1,12 @@
-import React from "react";
-import "./Emoji.css";
+import React from 'react';
+import './Emoji.css';
 
-const Emoji = ({ label, emoji }) => (
+const Emoji = ({ label, emoji, className }) => (
   <span
-    className="emoji"
-    role="img"
-    aria-label={label ? label : ""}
-    aria-hidden={label ? "false" : "true"}
+    className={`emoji ${className}`}
+    role='img'
+    aria-label={label ? label : ''}
+    aria-hidden={label ? 'false' : 'true'}
   >
     {emoji}
   </span>
