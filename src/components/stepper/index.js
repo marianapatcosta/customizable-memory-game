@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { Button, Step } from "..";
-import { DoubleChevron } from "../../assets/icons";
-import { ORIENTATIONS } from "../../constants";
-import "./Stepper.css";
+import React, { useState } from 'react';
+import { Button, Step } from '..';
+import { DoubleChevron } from '../../assets/icons';
+import { ORIENTATIONS } from '../../constants';
+import './Stepper.css';
 
 const Stepper = ({
   className,
   stepsMetadata,
   activeStep,
-  buttonLabel = "submit",
+  buttonLabel = 'submit',
   orientation = ORIENTATIONS.LANDSCAPE,
   onSubmit,
 }) => {
@@ -33,35 +33,35 @@ const Stepper = ({
   return (
     <div
       className={`stepper ${className} ${
-        orientation === ORIENTATIONS.PORTRAIT ? "stepper--portrait" : ""
+        orientation === ORIENTATIONS.PORTRAIT ? 'stepper--portrait' : ''
       }`}
       data-steps={stepsMetadata.length}
     >
       <ul
-        role="group"
-        aria-label="progress"
+        role='group'
+        aria-label='progress'
         className={`stepper__indicator ${
           orientation === ORIENTATIONS.PORTRAIT
-            ? "stepper__indicator--portrait"
-            : ""
+            ? 'stepper__indicator--portrait'
+            : ''
         }`}
       >
         <progress
           className={`stepper__progress-bar ${
             orientation === ORIENTATIONS.PORTRAIT
-              ? "stepper__progress-bar--portrait"
-              : ""
+              ? 'stepper__progress-bar--portrait'
+              : ''
           }`}
           value={getProgressBarPercentage()}
-          max="100"
+          max='100'
         />
 
         {stepsMetadata.map((step, index) => (
           <li
             key={`step-indicator-${index + Math.random()}`}
-            aria-current={"step"}
+            aria-current={'step'}
             className={`stepper__indicator-item ${
-              index <= activeStepIndex ? "stepper__indicator-item--filled" : ""
+              index <= activeStepIndex ? 'stepper__indicator-item--filled' : ''
             }`}
           >
             {index + 1}
@@ -71,8 +71,8 @@ const Stepper = ({
       <div
         className={`${
           orientation === ORIENTATIONS.PORTRAIT
-            ? "stepper-container--portrait"
-            : ""
+            ? 'stepper-container--portrait'
+            : ''
         }`}
       >
         <div className={`stepper__content ${className}`}>
@@ -80,7 +80,7 @@ const Stepper = ({
             ({ renderContent }, index) =>
               index === activeStepIndex && (
                 <Step
-                  key={`step-${index + Math.random()}`}
+                  key={`step-${index}`}
                   renderContent={renderContent}
                   isActive={index === activeStepIndex}
                 />
@@ -90,23 +90,23 @@ const Stepper = ({
         <div className={`stepper__footer ${className}`}>
           {activeStepIndex > 0 && (
             <Button
-              className="stepper__footer-button stepper__footer-button--left"
-              aria-label="click to go to previous step"
+              className='stepper__footer-button stepper__footer-button--left'
+              aria-label='click to go to previous step'
               icon={DoubleChevron}
               onClick={handlePreviousStepClick}
             />
           )}
           {hasNextButton && (
             <Button
-              className="stepper__footer-button stepper__footer-button--right"
-              aria-label="click to go to previous step"
+              className='stepper__footer-button stepper__footer-button--right'
+              aria-label='click to go to previous step'
               icon={
                 activeStepIndex !== stepsMetadata.length - 1
                   ? DoubleChevron
-                  : ""
+                  : ''
               }
               label={
-                activeStepIndex === stepsMetadata.length - 1 ? buttonLabel : ""
+                activeStepIndex === stepsMetadata.length - 1 ? buttonLabel : ''
               }
               disabled={!stepsMetadata[activeStepIndex].isValid}
               onClick={
