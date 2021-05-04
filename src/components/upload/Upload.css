@@ -34,14 +34,12 @@
   overflow: auto;
   margin-left: 1.25rem;
   height: 100%;
-
 }
 
 .upload__preview--files {
   display: block;
   margin-left: 0;
   height: 100%;
-
 }
 
 .upload__preview-container {
@@ -81,8 +79,9 @@
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  background: var(--color-white) url('../../assets/icons/close.svg') no-repeat center center;
-  background-size: 0.5rem 0.5rem ;
+  background: var(--color-white) url("../../assets/icons/close.svg") no-repeat
+    center center;
+  background-size: 0.5rem 0.5rem;
 }
 
 .upload__preview-file-close {

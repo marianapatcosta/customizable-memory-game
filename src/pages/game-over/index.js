@@ -1,18 +1,14 @@
-import React from "react";
-import { Button, Carousel, Emoji } from "../../components";
-import { Confetti } from "../../animations";
-import { PartyHat } from "../../assets/images";
-import { isElectron } from "../../utils";
-import "./GameOver.css";
-
-const photos = Array.from(Array(4), (item, index) => ({
-  src: `./${index}.jpg`,
-}));
+import React from 'react';
+import { Button, Carousel, Emoji } from '../../components';
+import { Confetti } from '../../animations';
+import { PartyHat } from '../../assets/images';
+import { isElectron } from '../../utils';
+import './GameOver.css';
 
 const getAgeNumbers = (age) => {
-  if (!age) return { firstAgeNumber: "?", secondAgeNumber: "?" };
-  if (age.length === 1) return { firstAgeNumber: "?", secondAgeNumber: age };
-  return { firstAgeNumber: age[0], secondAgeNumber: age[1] };
+  if (!age) return { firstAgeNumber: '?', secondAgeNumber: '?' };
+  if (age.length === 1) return { firstAgeNumber: '', secondAgeNumber: age };
+  return { firstAgeNumber: age[0], secondAgeNumber: age.slice(1) };
 };
 
 const GameOver = ({ gameSetup, restartGame, backToSetup }) => {
@@ -27,65 +23,86 @@ const GameOver = ({ gameSetup, restartGame, backToSetup }) => {
   const isElectronProcess = isElectron();
 
   return (
-    <div className="game-over">
+    <div className='game-over'>
       <Confetti />
-      <h2 className="game-over__title">
+      <h2 className='game-over__title'>
         Congratulations! <br /> You won!
       </h2>
-      <div className="game-over__top">
-        <div className="game-over__balloons">
-          <div className="game-over__balloon">
-            <span className="game-over__balloon--number">{firstAgeNumber}</span>
+      <div className='game-over__top'>
+        <div className='game-over__balloons'>
+          <div className='game-over__balloon'>
+            <span className='game-over__balloon--number'>{firstAgeNumber}</span>
           </div>
-          <div className="game-over__balloon">
-            <span className="game-over__balloon--number">
+          <div className='game-over__balloon'>
+            <span className='game-over__balloon--number'>
               {secondAgeNumber}
             </span>
           </div>
-          <div className="game-over__balloon">
-            <div className="game-over__balloon--image">
+          <div className='game-over__balloon'>
+            <div>
               {!balloonImage ? (
-                <Emoji label="party" emoji="🥳" />
+                <Emoji
+                  className='game-over__balloon--emoji'
+                  label='party'
+                  emoji='🥳'
+                />
               ) : (
                 <img
-                  className="game-over__balloon--image"
+                  className='game-over__balloon--image'
                   src={balloonImage.src}
-                  alt="balloon"
+                  alt='balloon'
+                />
+              )}
+              {balloonImage && (
+                <img
+                  className='game-over__party-hat'
+                  src={PartyHat}
+                  alt='party hat'
                 />
               )}
             </div>
           </div>
         </div>
-        <img className="game-over__party-hat" src={PartyHat} alt="party hat" />
+        <div className='game-over__cake--container'>
+          <div className='game-over__cake--flame'></div>
+          <div className='game-over__cake--candle'></div>
+          <div className='game-over__cake'>
+            <div className='game-over__cake--top'>
+              <div className='game-over__cake--chocolate-drops'></div>
+              <div className='game-over__cake--chocolate-drops-a'></div>
+            </div>
+          </div>
+          <div class='game-over__cake--holder'></div>
+        </div>
       </div>
-      <div className="game-over__body">
+      <div className='game-over__body'>
         {!!carouselImages.length && (
-          <div className="game-over__carousel--mobile">
+          <div className='game-over__carousel--mobile'>
             <Carousel
               items={carouselImages}
               imageOrientation={carouselOrientation}
             />
           </div>
         )}
-        <div className="game-over__body--bottom">
+        <div className='game-over__body--bottom'>
           {!!birthdayAudio && (
             <audio controls autoPlay loop>
-              <source src={birthdayAudio.src} type="audio/mpeg" />
+              <source src={birthdayAudio.src} type='audio/mpeg' />
             </audio>
           )}
           <Button
-            className="game-over__button"
+            className='game-over__button'
             onClick={restartGame}
-            label="Play Again"
+            label='Play Again'
           />
         </div>
         {!isElectronProcess && (
-          <button className="button-link game-over__link" onClick={backToSetup}>
+          <button className='button-link game-over__link' onClick={backToSetup}>
             Back to setup
           </button>
         )}
         {!!carouselImages?.length && (
-          <div className="game-over__carousel--desktop">
+          <div className='game-over__carousel--desktop'>
             <Carousel
               items={carouselImages}
               imageOrientation={carouselOrientation}

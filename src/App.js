@@ -105,7 +105,7 @@ const App = () => {
       {isElectronProcess && <MenuBar title="Memory Game" />}
       <Header
         className={`${isElectronProcess ? "app__header--electron" : ""}`}
-        title="Memory Game"
+        title="Customizable Memory Game"
         isElectron={isElectronProcess}
       />
       <div
