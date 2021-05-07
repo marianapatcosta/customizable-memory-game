@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import './Step.css';
 
-const Step = ({ renderContent, stepClassName }) => (
-  <div className={`step ${stepClassName}`}>{renderContent()}</div>
-);
+const Step = forwardRef(({ renderContent, stepClassName }, ref) => (
+  <div ref={ref} className={`step ${stepClassName}`}>
+    {renderContent()}
+  </div>
+));
 
 export default Step;

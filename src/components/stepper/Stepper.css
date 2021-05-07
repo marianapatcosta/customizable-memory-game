@@ -127,3 +127,21 @@
   -ms-transform: rotate(-90deg);
   -o-transform: rotate(-90deg);
 }
+
+.stepper__step-enter {
+  opacity: 0;
+}
+
+.stepper__step-enter-active {
+  opacity: 1;
+  transition: opacity 0.75s ease-in;
+}
+
+.stepper__step-exit {
+  opacity: 1;
+}
+
+.stepper__step-exit-active {
+  opacity: 0;
+  transition: opacity 0.01s ease-in;
+}

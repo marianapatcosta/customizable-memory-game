@@ -1,10 +1,11 @@
-import React, { useRef } from "react";
-import { Button } from "..";
-import "./Upload.css";
+import React, { useRef } from 'react';
+import { Button } from '..';
+import { Upload as UploadIcon } from '../../assets/icons';
+import './Upload.css';
 
 const Upload = ({
   className,
-  label,
+  label = 'upload',
   title,
   hasPreview = true,
   disabled,
@@ -17,10 +18,11 @@ const Upload = ({
 }) => {
   const inputRef = useRef();
   return (
-    <div className="upload__wrapper">
-      <div className="upload">
-        <div className="upload__title">{title}</div>
+    <div className='upload__wrapper'>
+      <div className='upload'>
+        <div className='upload__title'>{title}</div>
         <Button
+          icon={UploadIcon}
           label={label}
           className={`upload__button ${className}`}
           disabled={disabled}
@@ -28,9 +30,9 @@ const Upload = ({
         />
         <input
           ref={inputRef}
-          className="upload__input"
-          type="file"
-          multiple={areMultipleFilesAllowed ? "multiple" : ""}
+          className='upload__input'
+          type='file'
+          multiple={areMultipleFilesAllowed ? 'multiple' : ''}
           accept={fileTypes}
           onChange={onUpload}
         />
@@ -39,25 +41,25 @@ const Upload = ({
         <div
           className={`upload__preview ${
             !!filesPreview && !!filesPreview.length
-              ? "upload__preview--files"
-              : ""
+              ? 'upload__preview--files'
+              : ''
           }`}
         >
           {!!imagesPreview &&
             !!imagesPreview.length &&
             imagesPreview.map((image, index) => (
               <div
-                className="upload__preview-container"
+                className='upload__preview-container'
                 key={`image-preview-${index}`}
               >
                 <img
-                  className="upload__image-preview"
+                  className='upload__image-preview'
                   src={image}
-                  alt="uploaded preview"
+                  alt='uploaded preview'
                 />
                 <button
-                  aria-label={"remove uploaded image"}
-                  className="upload__preview-close"
+                  aria-label={'remove uploaded image'}
+                  className='upload__preview-close'
                   onClick={() => onDeleteFile(index)}
                 />
               </div>
@@ -66,13 +68,13 @@ const Upload = ({
             !!filesPreview.length &&
             filesPreview.map((file, index) => (
               <div
-                className="upload__preview-container"
+                className='upload__preview-container'
                 key={`file-preview-${index}`}
               >
-                <p className="upload__file-preview">{file}</p>
+                <p className='upload__file-preview'>{file}</p>
                 <button
-                  aria-label={"remove uploaded file"}
-                  className="upload__preview-close upload__preview-file-close"
+                  aria-label={'remove uploaded file'}
+                  className='upload__preview-close upload__preview-file-close'
                   onClick={() => onDeleteFile(index)}
                 />
               </div>

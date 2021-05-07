@@ -1,21 +1,27 @@
-import React, { useEffect, useState } from "react";
-import "./Intro.css";
+import React from 'react';
+import { GameCardsExample } from '../../assets/images';
+import { Intro as IntroVideo } from '../../assets/video';
+import { Card } from '../../components';
+import './Intro.css';
 
-const Intro = ({ goToSetup }) => {
-  useEffect(() => {
-    const timer = setTimeout(goToSetup, 3000);
-
-    return () => clearTimeout(timer);
-  }, [goToSetup]);
-
-  return (
-    <div className="intro">
-      intro
-      <button className="button-link" onClick={goToSetup}>
-        Skip intro
-      </button>
-    </div>
-  );
-};
+const Intro = ({ goToSetup }) => (
+  <div className='intro'>
+    <Card className='intro__video-container'>
+      <div className='intro__video-wrapper'>
+        <video
+          className='intro__video'
+          poster={GameCardsExample}
+          src={IntroVideo}
+          autoPlay
+          muted
+          onEnded={goToSetup}
+        />
+      </div>
+    </Card>
+    <button className='button-link intro__link' onClick={goToSetup}>
+      skip intro
+    </button>
+  </div>
+);
 
 export default Intro;

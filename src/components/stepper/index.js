@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Button, Step } from '..';
 import { DoubleChevron } from '../../assets/icons';
 import { ORIENTATIONS } from '../../constants';
@@ -17,6 +18,8 @@ const Stepper = ({
   const hasNextButton =
     activeStepIndex !== stepsMetadata.length - 1 ||
     (activeStepIndex === stepsMetadata.length - 1 && !!onSubmit);
+
+  const nodeRef = useRef(null);
 
   const handleNextStepClick = () => {
     if (activeStepIndex === stepsMetadata.length - 1) return;
@@ -75,18 +78,31 @@ const Stepper = ({
             : ''
         }`}
       >
-        <div className={`stepper__content ${className}`}>
+        <TransitionGroup
+          component='div'
+          className={`stepper__content ${className}`}
+        >
           {stepsMetadata.map(
             ({ renderContent }, index) =>
               index === activeStepIndex && (
-                <Step
+                <CSSTransition
+                  nodeRef={nodeRef}
+                  timeout={{
+                    enter: 750,
+                    exit: 10,
+                  }}
+                  classNames='stepper__step'
                   key={`step-${index}`}
-                  renderContent={renderContent}
-                  isActive={index === activeStepIndex}
-                />
+                >
+                  <Step
+                    ref={nodeRef}
+                    renderContent={renderContent}
+                    isActive={index === activeStepIndex}
+                  />
+                </CSSTransition>
               )
           )}
-        </div>
+        </TransitionGroup>
         <div className={`stepper__footer ${className}`}>
           {activeStepIndex > 0 && (
             <Button

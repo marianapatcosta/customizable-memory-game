@@ -18,6 +18,7 @@ const Input = ({
     <input
       id={id}
       name={id}
+      autoComplete='off'
       {...inputProps}
       className={`input ${isInvalid ? 'input--error' : ''} ${className}`}
     />

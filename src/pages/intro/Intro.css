@@ -1,0 +1,29 @@
+.intro__video-container {
+  padding: 1rem;
+  max-width: 50rem;
+  max-height: 30rem;
+  margin: 3rem 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.intro__video-wrapper {
+  width: 100%;
+  border-radius: 0.38rem;
+  overflow: hidden;
+}
+
+.intro__video {
+  width: 100%;
+  object-fit: scale-down;
+}
+
+.intro__link {
+  margin-top: 5rem;
+}
+
+@media only screen and (min-width: 820px) {
+  .intro__video-container {
+    margin: 5rem auto 0;
+  }
+}
