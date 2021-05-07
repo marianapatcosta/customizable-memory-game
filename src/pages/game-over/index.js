@@ -72,7 +72,7 @@ const GameOver = ({ gameSetup, restartGame, backToSetup }) => {
               <div className='game-over__cake--chocolate-drops-a'></div>
             </div>
           </div>
-          <div class='game-over__cake--holder'></div>
+          <div className='game-over__cake--holder'></div>
         </div>
       </div>
       <div className='game-over__body'>
@@ -98,7 +98,7 @@ const GameOver = ({ gameSetup, restartGame, backToSetup }) => {
         </div>
         {!isElectronProcess && (
           <button className='button-link game-over__link' onClick={backToSetup}>
-            Back to setup
+            back to setup
           </button>
         )}
         {!!carouselImages?.length && (

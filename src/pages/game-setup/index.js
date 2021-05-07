@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import JSZip from "jszip";
-import { saveAs } from "file-saver";
+import React, { useEffect, useState } from 'react';
+import JSZip from 'jszip';
+import { saveAs } from 'file-saver';
 import {
   Button,
   Card,
@@ -10,16 +10,16 @@ import {
   Stepper,
   Toast,
   Upload,
-} from "../../components";
+} from '../../components';
 import {
   BalloonsExample,
   GameCardsExample,
   SlideExample,
   CardBackDefault,
   CardBackPortraitDefault,
-} from "../../assets/images";
-import * as Icons from "../../assets/icons";
-import { AudioDefault } from "../../assets/audio";
+} from '../../assets/images';
+import * as Icons from '../../assets/icons';
+import { AudioDefault } from '../../assets/audio';
 import {
   AUDIO_FILE_TYPES,
   IMAGE_FILE_TYPES,
@@ -29,8 +29,8 @@ import {
   ORIENTATIONS,
   OPERATIVE_SYSTEMS,
   TOAST_TYPES,
-} from "../../constants";
-import "./GameSetup.css";
+} from '../../constants';
+import './GameSetup.css';
 
 const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
   const [cardOrientation, setCardOrientation] = useState(ORIENTATIONS.PORTRAIT);
@@ -38,7 +38,7 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
     ORIENTATIONS.PORTRAIT
   );
   const [age, setAge] = useState({
-    value: "",
+    value: '',
     isValid: false,
     isTouched: false,
   });
@@ -49,21 +49,27 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
   const [birthdayAudio, setBirthdayAudio] = useState([]);
   const [toastData, setToastData] = useState({});
   const [audioDefault, setAudioDefault] = useState();
-  const imageFileTypes = Object.values(IMAGE_FILE_TYPES).join(", ");
-  const audioFileTypes = Object.values(AUDIO_FILE_TYPES).join(", ");
+  const imageFileTypes = Object.values(IMAGE_FILE_TYPES).join(', ');
+  const audioFileTypes = Object.values(AUDIO_FILE_TYPES).join(', ');
 
   useEffect(() => {
     if (!!Object.keys(gameSetup)?.length) {
       setCardOrientation(gameSetup.cardOrientation || ORIENTATIONS.PORTRAIT);
-      setGameCardBackImage(gameSetup.gameCardBackImage || []);
+      setGameCardBackImage(
+        !!gameSetup.gameCardBackImage ? [gameSetup.gameCardBackImage] : []
+      );
       setGameCardImages(gameSetup.gameCardImages || []);
       setCarouselOrientation(
         gameSetup.carouselOrientation || ORIENTATIONS.PORTRAIT
       );
-      setCarouselImages(gameSetup.carouselImages || []);
-      setAge((prevAge) => ({ ...prevAge, value: gameSetup.age || "" }));
-      setBalloonImage(gameSetup.balloonImage || []);
-      setBirthdayAudio(gameSetup.birthdayAudio || []);
+      setCarouselImages(
+        !!gameSetup.carouselImages.length ? gameSetup.carouselImages : []
+      );
+      setAge((prevAge) => ({ ...prevAge, value: gameSetup.age || '' }));
+      setBalloonImage(!!gameSetup.balloonImage ? [gameSetup.balloonImage] : []);
+      setBirthdayAudio(
+        !!gameSetup.birthdayAudio ? [gameSetup.birthdayAudio] : []
+      );
     }
   }, [gameSetup]);
 
@@ -77,7 +83,7 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
         await reader.readAsDataURL(audioBlob);
         reader.onloadend = () => {
           setAudioDefault({
-            name: "birthday audio default",
+            name: 'birthday audio default',
             src: reader.result,
           });
         };
@@ -90,7 +96,7 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
 
   const areAllFilesValid = (files, validator) => {
     return Array.from(files).every((file) => {
-      const fileType = `.${file.name.split(".").pop()}`.toLowerCase();
+      const fileType = `.${file.name.split('.').pop()}`.toLowerCase();
       return validator.includes(fileType);
     });
   };
@@ -153,7 +159,7 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
     if (!!gameCardBackImage[0]) return gameCardBackImage[0];
 
     return {
-      name: "card back default",
+      name: 'card back default',
       src:
         cardOrientation === ORIENTATIONS.LANDSCAPE
           ? CardBackDefault
@@ -184,7 +190,7 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
   const handleDownload = async (os) => {
     const gameSetup = getGameSetup();
     const configJsonData = JSON.stringify(gameSetup);
-    const configJsonBlob = new Blob([configJsonData], { type: "text/plain" });
+    const configJsonBlob = new Blob([configJsonData], { type: 'text/plain' });
 
     /*  const link = document.createElement("a");
     link.href = `/your-game-${os.toLowerCase()}.app`;
@@ -199,9 +205,9 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
       console.log(222, appBlob);
 
       const zip = new JSZip();
-      zip.file("setup.json", configJsonBlob);
+      zip.file('setup.json', configJsonBlob);
       zip.file(`app-${os.toLowerCase()}`, appBlob);
-      const content = await zip.generateAsync({ type: "blob" });
+      const content = await zip.generateAsync({ type: 'blob' });
       saveAs(content, `bday-app-${os.toLowerCase()}.zip`);
       onDownload();
     } catch (error) {
@@ -211,17 +217,17 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
 
   const renderStep1 = () => (
     <>
-      <h3 className="game-setup__step-title">Game card customization</h3>
-      <Image className="game-setup__step-image" src={GameCardsExample} />
-      <div className="game-setup__form-item">
-        <h4 className="game-setup__form-item-title">card orientation</h4>
-        <div className="game-setup__form-item-radio" role="radiogroup">
+      <h3 className='game-setup__step-title'>Game card customization</h3>
+      <Image className='game-setup__step-image' src={GameCardsExample} />
+      <div className='game-setup__form-item'>
+        <h4 className='game-setup__form-item-title'>card orientation</h4>
+        <div className='game-setup__form-item-radio' role='radiogroup'>
           {Object.values(ORIENTATIONS).map((orientation, index) => (
             <RadioButton
               key={`radio-${index + Math.random()}`}
               id={`orientation-${orientation}`}
-              className={"game-setup__radio"}
-              name={"card-orientation"}
+              className={'game-setup__radio'}
+              name={'card-orientation'}
               isSelected={cardOrientation === orientation}
               label={orientation}
               onChange={() => setCardOrientation(orientation)}
@@ -229,11 +235,10 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
           ))}
         </div>
       </div>
-      <div className="game-setup__form-item">
+      <div className='game-setup__form-item'>
         <Upload
-          title="card back"
-          className="game-setup__form-upload"
-          label="Upload"
+          title='card back'
+          className='game-setup__form-upload'
           fileTypes={imageFileTypes}
           areMultipleFilesAllowed={false}
           imagesPreview={gameCardBackImage.map(({ src }) => src)}
@@ -245,11 +250,10 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
           }
         />
       </div>
-      <div className="game-setup__form-item">
+      <div className='game-setup__form-item'>
         <Upload
-          title="card faces (2-8)"
-          className="game-setup__form-upload"
-          label="Upload"
+          title='card faces (2-8)'
+          className='game-setup__form-upload'
           fileTypes={imageFileTypes}
           areMultipleFilesAllowed={true}
           imagesPreview={gameCardImages.map(({ src }) => src)}
@@ -271,17 +275,17 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
 
   const renderStep2 = () => (
     <>
-      <h3 className="game-setup__step-title">Photo slider customization</h3>
-      <Image className="game-setup__step-image" src={SlideExample} />
-      <div className="game-setup__form-item">
-        <h4 className="game-setup__form-item-title">photo orientation</h4>
-        <div className="game-setup__form-item-radio">
+      <h3 className='game-setup__step-title'>Photo slider customization</h3>
+      <Image className='game-setup__step-image' src={SlideExample} />
+      <div className='game-setup__form-item'>
+        <h4 className='game-setup__form-item-title'>photo orientation</h4>
+        <div className='game-setup__form-item-radio'>
           {Object.values(ORIENTATIONS).map((orientation, index) => (
             <RadioButton
               key={`radio-${index + Math.random()}`}
               id={`orientation-${orientation}`}
-              className={"game-setup__radio"}
-              name={"slider-orientation"}
+              className={'game-setup__radio'}
+              name={'slider-orientation'}
               isSelected={carouselOrientation === orientation}
               label={orientation}
               onChange={() => setCarouselOrientation(orientation)}
@@ -289,10 +293,9 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
           ))}
         </div>
       </div>
-      <div className="game-setup__form-item">
+      <div className='game-setup__form-item'>
         <Upload
-          label="Upload"
-          title={"slider photos (1-10)"}
+          title={'slider photos (1-10)'}
           fileTypes={imageFileTypes}
           areMultipleFilesAllowed={true}
           imagesPreview={carouselImages.map(({ src }) => src)}
@@ -309,19 +312,19 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
 
   const renderStep3 = () => (
     <>
-      <h3 className="game-setup__step-title">Balloons customization</h3>
-      <Image className="game-setup__step-image" src={BalloonsExample} />
-      <div className="game-setup__form-item">
-        <h4 className="game-setup__form-item-title game-setup__form-item-title--input">
+      <h3 className='game-setup__step-title'>Balloons customization</h3>
+      <Image className='game-setup__step-image' src={BalloonsExample} />
+      <div className='game-setup__form-item'>
+        <h4 className='game-setup__form-item-title game-setup__form-item-title--input'>
           age
         </h4>
         <Input
-          className="game-setup__form-item--input"
-          id={"nr-of-cards"}
+          className='game-setup__form-item--input'
+          id={'nr-of-cards'}
           min={MIN_AGE}
           max={MAX_AGE}
           errorText={`Please enter a valid age (${MIN_AGE}-${MAX_AGE})`}
-          type="number"
+          type='number'
           value={age.value}
           isInvalid={!age.isValid && age.isTouched}
           onChange={(e) =>
@@ -330,10 +333,9 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
           onBlur={() => handleInputTouch(setAge)}
         />
       </div>
-      <div className="game-setup__form-item">
+      <div className='game-setup__form-item'>
         <Upload
-          label="Upload"
-          title={"ballon photo"}
+          title={'ballon photo'}
           fileTypes={imageFileTypes}
           areMultipleFilesAllowed={false}
           imagesPreview={balloonImage.map(({ src }) => src)}
@@ -345,10 +347,9 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
           }
         />
       </div>
-      <div className="game-setup__form-item">
+      <div className='game-setup__form-item'>
         <Upload
-          label="Upload"
-          title={"birthday song"}
+          title={'birthday song'}
           fileTypes={audioFileTypes}
           areMultipleFilesAllowed={false}
           filesPreview={birthdayAudio.map(({ name }) => name)}
@@ -365,22 +366,22 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
 
   const renderStep4 = () => (
     <>
-      <h3 className="game-setup__step-title">Get your game!</h3>
-      <div className="game-setup__play">
+      <h3 className='game-setup__step-title'>Get your game!</h3>
+      <div className='game-setup__play'>
         <h4>Play online</h4>
         <Button
-          className="game-setup__button"
-          label="Play now"
+          className='game-setup__button'
+          label='Play now'
           onClick={handlePlayGame}
         />
       </div>
-      <div className="game-setup__play">
+      <div className='game-setup__play'>
         <h4>Download and send to a friend</h4>
-        <div className="game-setup__download">
+        <div className='game-setup__download'>
           {Object.values(OPERATIVE_SYSTEMS).map((os, index) => (
             <Button
               key={`dowbload-button-${os}`}
-              className="game-setup__icon-button"
+              className='game-setup__icon-button'
               icon={Icons[os]}
               aria-label={`download for ${os}`}
               onClick={() => handleDownload(os)}
@@ -409,9 +410,9 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
   ];
 
   return (
-    <div className="game-setup">
-      <h2 className="game-setup__title">Setup you game!</h2>
-      <Card className="game-setup__form">
+    <div className='game-setup'>
+      <h2 className='game-setup__title'>Setup you game!</h2>
+      <Card className='game-setup__form'>
         <Stepper
           stepsMetadata={stepsMetadata}
           activeStep={

@@ -20,15 +20,15 @@
 }
 
 .game-setup__step-image {
-  width: 18rem;
-  height: 13rem;
+  max-width: 18rem;
+  max-height: 13rem;
   margin: 1rem auto;
 }
 
 .game-setup__form-item {
   text-align: left;
   width: 90%;
-  margin: 2.5rem auto;
+  margin: 2rem auto;
 }
 
 .game-setup__form-item-title {

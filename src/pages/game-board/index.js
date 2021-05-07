@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { Button, GameCard, Modal } from "../../components";
-import "./GameBoard.css";
+import React, { useState, useEffect, useCallback } from 'react';
+import { Button, GameCard, Modal } from '../../components';
+import { ORIENTATIONS } from '../../constants';
+import './GameBoard.css';
 
 const defineRandomizedCards = (imageFilesAsDataUrl) => {
   let cards = imageFilesAsDataUrl.map((imageFile) => ({
@@ -28,8 +29,8 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
   const { cardOrientation, gameCardBackImage, gameCardImages } = gameSetup;
 
   const [cards, setCards] = useState(defineRandomizedCards(gameCardImages));
-  const [errorMessage, setErrorMessage] = useState("");
-  const [isConfirmationModal, setIsConfirmationModal] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isConfirmationModal, setIsConfirmationModal] = useState('');
 
   const updateGameCards = useCallback(() => {
     const selectedCards = cards.filter((card) => card.isSelected);
@@ -78,7 +79,7 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
 
     const selectedCards = cards.filter((card) => card.isSelected);
     if (selectedCards.length >= 2) {
-      return setErrorMessage("You can only select 2 cards at a time!");
+      return setErrorMessage('You can only select 2 cards at a time!');
     }
 
     return setCards((prevCards) => {
@@ -94,18 +95,18 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
   };
 
   const handleQuitGame = () => {
-    setErrorMessage("Are you sure you want to quit?");
+    setErrorMessage('Are you sure you want to quit?');
     setIsConfirmationModal(true);
   };
 
   const onCloseModal = () => {
-    setErrorMessage("");
+    setErrorMessage('');
     setIsConfirmationModal(false);
   };
 
   return (
-    <div className="game-board">
-      <h2 className="game-board__title">
+    <div className='game-board'>
+      <h2 className='game-board__title'>
         Select 2 cards at a time until all of them are matched
       </h2>
       {errorMessage && (
@@ -113,12 +114,18 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
           confirmationModal={isConfirmationModal}
           onConfirmation={restartGame}
           onClose={onCloseModal}
-          buttonLabel={isConfirmationModal ? "Cancel" : "OK"}
-          confirmationLabel="Yes"
+          buttonLabel={isConfirmationModal ? 'Cancel' : 'OK'}
+          confirmationLabel='Yes'
           message={errorMessage}
         />
       )}
-      <ul className="game-board__card-list">
+      <ul
+        className={`game-board__card-list ${
+          cardOrientation === ORIENTATIONS.LANDSCAPE
+            ? 'game-board__card-list--landscape'
+            : ''
+        }`}
+      >
         {cards.map((card, index) => (
           <GameCard
             key={`card-${index}`}
@@ -128,14 +135,14 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
             isMatched={card.isMatched}
             gameCardBackImage={gameCardBackImage.src}
             cardOrientation={cardOrientation}
-            onClick={() => handleCardSelection(index)} //onClick={handleCardSelection.bind(null, index)}
+            onClick={() => handleCardSelection(index)}
           />
         ))}
       </ul>
       <Button
-        className="game-board__footer"
+        className='game-board__footer'
         onClick={handleQuitGame}
-        label="Quit game"
+        label='Quit game'
       />
     </div>
   );

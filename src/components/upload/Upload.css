@@ -24,7 +24,7 @@
   align-items: flex-start;
   justify-content: space-between;
   overflow: hidden;
-  height: 5.6rem;
+  height: 4.5rem;
   width: 100%;
 }
 
@@ -38,15 +38,12 @@
 
 .upload__preview--files {
   display: block;
-  margin-left: 0;
   height: 100%;
 }
 
 .upload__preview-container {
   position: relative;
-  margin-left: auto;
   display: flex;
-  align-items: center;
 }
 
 .upload__image-preview {
@@ -59,7 +56,6 @@
   font-size: 90%;
   display: inline;
   margin-right: 0.3rem;
-  margin-left: auto;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -68,7 +64,7 @@
 .upload__preview-close {
   border: none;
   position: absolute;
-  top: 0.8rem;
+  top: 0.3rem;
   right: 0.8em;
   width: 0.625rem;
   height: 0.625rem;
@@ -79,7 +75,7 @@
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  background: var(--color-white) url("../../assets/icons/close.svg") no-repeat
+  background: var(--color-white) url('../../assets/icons/close.svg') no-repeat
     center center;
   background-size: 0.5rem 0.5rem;
 }

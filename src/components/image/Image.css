@@ -1,6 +1,7 @@
 .image {
   width: 100%;
   height: 100%;
+  border-radius: 0.38rem;
 }
 
 .image--not-loaded {
@@ -15,5 +16,5 @@
 }
 
 .image__wrapper {
-  padding: 10px;
+  padding: 0.625rem;
 }

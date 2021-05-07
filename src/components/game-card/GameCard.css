@@ -3,7 +3,6 @@
   width: 9.4rem;
   height: 13.1rem;
   position: relative;
-  margin: 1rem;
   transform-style: preserve-3d;
   animation: bounce 1.2s ease-in-out;
   -webkit-animation: bounce 1.2s ease-in-out;
@@ -23,7 +22,7 @@
 }
 
 .game-card-wrapper:focus::after {
-  content: "";
+  content: '';
   position: absolute;
   top: -0.125rem;
   left: -0.125rem;
@@ -104,7 +103,7 @@
 }
 
 .game-card__image--placeholder:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
