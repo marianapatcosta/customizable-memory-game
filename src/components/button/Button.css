@@ -10,6 +10,7 @@
   box-shadow: 0 0.063rem 0.25rem var(--color-shadow);
   color: var(--color-font);
   cursor: pointer;
+  font: inherit;
   font-size: 90%;
   font-weight: 700;
   min-width: 6.25rem;
@@ -18,6 +19,7 @@
   align-items: center;
   justify-content: center;
   margin-left: 0.125rem;
+  margin-top: -0.125rem;
 }
 
 .button:hover,
