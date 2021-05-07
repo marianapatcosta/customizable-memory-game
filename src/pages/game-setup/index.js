@@ -395,8 +395,7 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
   const stepsMetadata = [
     {
       renderContent: renderStep1,
-      isValid: true /*  !!cardOrientation &&
-      gameCardImages?.length > 1, */,
+      isValid: !!cardOrientation && gameCardImages?.length > 1,
     },
     {
       renderContent: renderStep2,

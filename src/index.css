@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
 :root {
   --color-primary: #f4f4f4d8;
   --color-secondary: #afccf1;
@@ -44,7 +46,7 @@
 body {
   background-color: var(--color-primary);
   color: var(--color-font);
-  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  font-family: 'Lora', 'Helvetica Neue', serif;
   font-size: 0.8rem;
   line-height: 1.2rem;
   overflow-x: hidden;
