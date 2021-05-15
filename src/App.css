@@ -36,6 +36,7 @@
 
 .app__footer {
   width: 100%;
+  position: fixed;
   background-color: var(--color-highlight);
   opacity: 0.75;
   color: var(--color-color);

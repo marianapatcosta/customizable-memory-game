@@ -71,7 +71,9 @@ const GameBoard = ({ gameSetup, handleGameOver, restartGame }) => {
 
   useEffect(() => {
     updateGameCards();
-    setTimeout(() => checkGameOver(), 500);
+    const timer = setTimeout(() => checkGameOver(), 500);
+
+    return () => clearTimeout(timer);
   }, [cards, checkGameOver, updateGameCards]);
 
   const handleCardSelection = (index) => {
