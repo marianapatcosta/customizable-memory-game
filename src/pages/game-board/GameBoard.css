@@ -9,29 +9,43 @@
 }
 
 .game-board__card-list {
-  display: grid;
-  grid-template-rows: repeat(auto-fit, 15rem);
-  grid-template-columns: repeat(auto-fit, 10rem);
-  justify-items: center;
-  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 25rem;
+  margin: auto;
+  gap: 0.5rem;
   justify-content: center;
-}
-
-.game-board__card-list--landscape {
-  grid-template-rows: repeat(auto-fit, 10rem);
-  grid-template-columns: repeat(auto-fit, 15rem);
 }
 
 .game-board__footer {
   margin: 3.5rem auto;
 }
 
+/*  for safari below 14.1 that not supports gap with flexbox */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .game-board__card-list {
+      margin: -0.5em;
+    }
+
+    .game-board__card-list > * {
+      margin: 0.5em;
+    }
+  }
+}
+
 @media only screen and (min-width: 767px) {
+  .game-board__card-list {
+    width: 45rem;
+  }
+}
+
+@media only screen and (min-width: 993px) {
   .game-board {
     padding-top: 2.5rem;
   }
 
   .game-board__card-list {
-    margin: 0 5rem;
+    width: 60rem;
   }
 }

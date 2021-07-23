@@ -156,7 +156,7 @@
 .game-over__link {
   position: absolute;
   font-size: 95%;
-  left: 1em;
+  left: 1rem;
   bottom: 1rem;
   height: 2rem;
 }

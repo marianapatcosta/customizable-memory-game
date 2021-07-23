@@ -167,19 +167,16 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
     };
   };
 
-  const getGameSetup = () => {
-    if (!!Object.keys(gameSetup).length) return gameSetup;
-    return {
-      cardOrientation,
-      gameCardBackImage: getCardBack(),
-      gameCardImages,
-      carouselOrientation,
-      carouselImages,
-      age: age.value,
-      balloonImage: balloonImage[0],
-      birthdayAudio: birthdayAudio[0] || audioDefault,
-    };
-  };
+  const getGameSetup = () => ({
+    cardOrientation,
+    gameCardBackImage: getCardBack(),
+    gameCardImages,
+    carouselOrientation,
+    carouselImages,
+    age: age.value,
+    balloonImage: balloonImage[0],
+    birthdayAudio: birthdayAudio[0] || audioDefault,
+  });
 
   const handlePlayGame = (e) => {
     e.preventDefault();
