@@ -25,7 +25,7 @@ const Game = ({ gameSetup, backToSetup }) => {
 
   return (
     <>
-      {!isGameStarted && !isGameOver && <GameStart startGame={startGame} />}
+      {!isGameStarted && !isGameOver && <GameStart startGame={startGame} backToSetup={backToSetup}/>}
       {isGameStarted && !isGameOver && (
         <GameBoard
           gameSetup={{ cardOrientation, gameCardBackImage, gameCardImages }}

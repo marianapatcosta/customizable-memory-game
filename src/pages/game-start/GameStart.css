@@ -10,7 +10,7 @@
   text-align: center;
 }
 
-.game-start > Button {
+.game-start__button {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -26,6 +26,14 @@
   font-size: 12.5rem;
   animation: shaking 1.2s infinite;
   -webkit-animation: shaking 1.2s infinite;
+}
+
+.game-start__link {
+  position: absolute;
+  font-size: 95%;
+  left: 2rem;
+  bottom: 0;
+  height: 2rem;
 }
 
 @media only screen and (min-width: 767px) {

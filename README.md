@@ -1,4 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Customizable Memory Game that plays birthday-related animations and song after winning. The user setups a customized game by uploading photos and a song. The resulting game can be played online or downloaded to play as desktop app that can be sent to the Bday person. This app was developoed using React and Electron.
+![memory-game-overview](https://user-images.githubusercontent.com/43031902/126787632-91dff970-7c6a-4148-b099-9e10406062d2.png)
 
 ## Available Scripts
 
