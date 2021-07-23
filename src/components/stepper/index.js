@@ -78,9 +78,10 @@ const Stepper = ({
         }`}
       >
           {stepsMetadata.map(
-            ({ renderContent }, index) =>
+            ({ id, renderContent }, index) =>
               index === activeStepIndex && (
                 <Step
+                  key={`step-${id}`}
                   stepClassName={`stepper__step ${index === activeStepIndex ? 'stepper__step--active': ''}`}
                   ref={nodeRef}
                   renderContent={renderContent}
