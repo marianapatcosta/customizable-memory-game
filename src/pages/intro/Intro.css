@@ -19,12 +19,20 @@
 }
 
 .intro__link {
-  margin-top: 5rem;
+  margin-top: 4rem;
   margin-right: 5rem;
 }
 
-@media only screen and (min-width: 820px) {
+@media only screen and (min-width: 767px) {
   .intro__video-container {
     margin: 5rem auto 0;
+  }
+
+  .intro__video-wrapper {
+    width: 80%;
+  }
+
+  .intro__link {
+    margin-top: 2rem;
   }
 }

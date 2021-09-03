@@ -47,7 +47,7 @@ body {
   background-color: var(--color-primary);
   color: var(--color-font);
   font-family: 'Lora', 'Helvetica Neue', serif;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   line-height: 1.2rem;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -78,6 +78,6 @@ h3 {
 
 @media only screen and (min-width: 767px) {
   body {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
