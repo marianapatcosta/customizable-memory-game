@@ -10,7 +10,8 @@ const createWindow = () => {
     height: 950,
     webPreferences: {
       nodeIntegration: true, // to enable window.require and access main process from React components
-      enableRemoteModule: true, // to allow access remote mode in react components
+      enableRemoteModule: true, // to allow access remote mode in react components,
+      webSecurity: false
     },
     icon: `${__dirname}/memory.png`,
     show: false,

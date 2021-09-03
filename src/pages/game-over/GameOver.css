@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   padding-top: 1.5rem;
-  height: 90%;
+  height: calc(100vh - 9rem);
 }
 
 .game-over__title {
@@ -45,7 +45,7 @@
 }
 
 .game-over__balloon:before {
-  content: '▲';
+  content: "▲";
   font-size: 1.25rem;
   color: #5979a6;
   display: block;
@@ -62,7 +62,7 @@
   position: absolute;
   height: 15rem;
   width: 0.063rem;
-  content: '';
+  content: "";
   background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -141,6 +141,13 @@
 
 .game-over__body--bottom {
   display: flex;
+  width: 100%;
+  z-index: 1;
+  
+}
+
+.game-over__body--bottom-audio {
+  display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: auto;
@@ -154,11 +161,11 @@
 }
 
 .game-over__link {
-  position: absolute;
   font-size: 95%;
-  left: 1rem;
-  bottom: 1rem;
-  height: 2rem;
+  margin: 0;
+  position: absolute;
+  right: 3rem;
+  bottom: 1;
 }
 
 .game-over__carousel--mobile {
@@ -194,7 +201,7 @@
 }
 
 .game-over__cake:after {
-  content: '';
+  content: "";
   background-color: #352728;
   width: 100%;
   height: 0.625rem;
@@ -204,7 +211,7 @@
 }
 
 .game-over__cake:before {
-  content: '';
+  content: "";
   background-color: #352728;
   width: 100%;
   height: 0.625rem;
@@ -221,7 +228,7 @@
 }
 
 .game-over__cake--top:after {
-  content: '';
+  content: "";
   position: absolute;
   background-color: #352728;
   width: 1.56rem;
@@ -232,7 +239,7 @@
 }
 
 .game-over__cake--top:before {
-  content: '';
+  content: "";
   position: absolute;
   background-color: #7c665f;
   width: 1.6rem;
@@ -253,7 +260,7 @@
 }
 
 .game-over__cake--chocolate-drops:after {
-  content: '';
+  content: "";
   position: absolute;
   background-color: #7c665f;
   width: 1.6rem;
@@ -270,7 +277,7 @@
   top: 0.625rem;
   left: 3.2rem;
   border-radius: 3.1rem;
-  content: '';
+  content: "";
 }
 
 .game-over__cake--chocolate-drops-a {
@@ -291,12 +298,12 @@
   top: -0.3rem;
   left: 1.6rem;
   border-radius: 3.2rem;
-  content: '';
+  content: "";
 }
 
 .game-over__cake--chocolate-drops-a:before {
   position: absolute;
-  content: '';
+  content: "";
   background-color: #7c665f;
   width: 1.6rem;
   height: 2.2rem;
@@ -340,7 +347,7 @@
   left: 0;
   right: 0;
   margin: 0 auto;
-  content: '';
+  content: "";
   background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -362,11 +369,20 @@
 
   .game-over__carousel--desktop {
     display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
   }
 
   .game-over__body--bottom {
-    margin-left: 7rem;
-    margin-right: 0.5rem;
+    position: fixed;
+    bottom: 3rem;
+    width: 100%;
+  }
+
+  .game-over__link {
+    right: 6rem;
+    bottom: 0;
   }
 }
 

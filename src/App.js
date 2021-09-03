@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 //import isDev from "electron-is-dev";
-import { Game, GameSetup, Goodbye, Intro } from './pages/';
-import { Header, MenuBar } from './components';
-import { isElectron } from './utils';
+import { Game, GameSetup, Goodbye, Intro } from "./pages/";
+import { Header, MenuBar } from "./components";
+import { isElectron } from "./utils";
 /* import JsonSetupDev from "./assets/docs/setup.json";
 import JsonSetupProd from "../../../../../../setup.json"; */
-import { Github, Linkedin } from './assets/icons';
-import './App.css';
+import { Github, Linkedin } from "./assets/icons";
+import "./App.css";
 
 //const JsonSetup = require(`${process.env.REACT_APP_MAIN}`);
 
 const isElectronProcess = isElectron();
-const electron = isElectronProcess && window.require('electron');
+const electron = isElectronProcess && window.require("electron");
 const remote = isElectronProcess && electron.remote;
 
 const ipcRenderer = isElectronProcess && electron.ipcRenderer;
@@ -19,7 +19,7 @@ const ipcRenderer = isElectronProcess && electron.ipcRenderer;
   isElectronProcess && remote.require(`${process.env.REACT_APP_MAIN}`); */
 
 const App = () => {
-  const [isIntro, setIsIntro] = useState(!isElectronProcess);
+  const [hasIntro, setHasIntro] = useState(!isElectronProcess);
   const [isSetupReady, setIsSetupReady] = useState(false);
   const [gameSetup, setGameSetup] = useState({});
   const [isDownload, setIsDownload] = useState(false);
@@ -35,10 +35,18 @@ const App = () => {
         console.log(999, data, a, b);
         setJsonSetup(data);
       }); */
-    console.log(66, `${window.location.pathname.split('Memory')[0]}setup.json`);
+    console.log(
+      66,
+      /*  window.location.pathname,
+      window.location.pathname.split("Memory")[0],
+      `${window.location.pathname.split("Memory")[0]}setup.json` */
+      window.location.pathname,
+      window.location.pathname.split("Memory")[0],
+      `${window.location.pathname.split("Memory")[0]}setup.json`
+    );
     const fetchData = async () => {
       const response = await fetch(
-        `${window.location.pathname.split('Memory')[0]}setup.json`
+        `${window.location.pathname.split("Memory")[0]}setup.json`
       );
       const jsonData = await response.json();
       console.log(2222, jsonData, response);
@@ -62,14 +70,14 @@ const App = () => {
     setIsSetupReady(true);
   };
 
-  const goToSetup = () => setIsIntro(false);
+  const goToSetup = () => setHasIntro(false);
 
   const backToSetup = () => {
     setIsSetupReady(false);
   };
 
   const setupNewGame = () => {
-    setIsIntro(false);
+    setHasIntro(false);
     setIsSetupReady(false);
     setGameSetup({});
     setIsDownload(false);
@@ -83,9 +91,9 @@ const App = () => {
   const renderContent = () => {
     if (isElectronProcess) return <Game gameSetup={jsonSetup} />;
 
-    if (isIntro) return <Intro goToSetup={goToSetup} />;
+    if (hasIntro) return <Intro goToSetup={goToSetup} />;
 
-    if (!isIntro && !isSetupReady)
+    if (!hasIntro && !isSetupReady)
       return (
         <GameSetup
           gameSetup={gameSetup}
@@ -94,46 +102,46 @@ const App = () => {
         />
       );
 
-    if (!isIntro && isSetupReady && !isDownload)
+    if (!hasIntro && isSetupReady && !isDownload)
       return <Game gameSetup={gameSetup} backToSetup={backToSetup} />;
 
     return <Goodbye setupNewGame={setupNewGame} />;
   };
 
   return (
-    <div className='app'>
-      {isElectronProcess && <MenuBar title='Memory Game' />}
+    <div className="app">
+      {isElectronProcess && <MenuBar title="Memory Game" />}
       <Header
-        className={`${isElectronProcess ? 'app__header--electron' : ''}`}
-        title='Customizable Memory Game'
+        className={`${isElectronProcess ? "app__header--electron" : ""}`}
+        title="Customizable Memory Game"
         isElectron={isElectronProcess}
       />
       <div
         className={`app__main ${
-          isElectronProcess ? 'app__main--electron' : ''
+          isElectronProcess ? "app__main--electron" : ""
         }`}
       >
         {renderContent()}
       </div>
-      <footer className='app__footer'>
+      <footer className="app__footer">
         <p>{`©2021 - Designed and developed by Mariana Costa`}</p>
         <a
-          className='app__footer-link'
-          href={'https://github.com/marianapatcosta'}
+          className="app__footer-link"
+          href={"https://github.com/marianapatcosta"}
           aria-label={`go to Mariana Costa's Github`}
-          target='_blank'
-          rel='nofollow noopener noreferrer'
+          target="_blank"
+          rel="nofollow noopener noreferrer"
         >
-          <img src={Github} alt='github icon' />
+          <img src={Github} alt="github icon" />
         </a>
         <a
-          className='app__footer-link'
-          href={'https://www.linkedin.com/in/marianapatcosta'}
+          className="app__footer-link"
+          href={"https://www.linkedin.com/in/marianapatcosta"}
           aria-label={`go to Mariana Costa's Linkedin`}
-          target='_blank'
-          rel='nofollow noopener noreferrer'
+          target="_blank"
+          rel="nofollow noopener noreferrer"
         >
-          <img src={Linkedin} alt='linkedin icon' />
+          <img src={Linkedin} alt="linkedin icon" />
         </a>
       </footer>
     </div>
