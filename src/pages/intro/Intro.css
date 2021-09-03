@@ -14,12 +14,13 @@
 }
 
 .intro__video {
-  width: 100%;
   object-fit: scale-down;
+  width: 100%;
+  height: calc((100vw) * 0.375);
 }
 
 .intro__link {
-  margin-top: 4rem;
+  margin-top: 5rem;
   margin-right: 5rem;
 }
 
