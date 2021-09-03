@@ -375,6 +375,7 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
               icon={Icons[os]}
               aria-label={`download for ${os}`}
               onClick={() => handleDownload(os)}
+              disabled
             />
           ))}
         </div>
