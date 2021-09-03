@@ -95,8 +95,6 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
     getDefaultAudio();
   }, []);
 
-  console.log(4534666, audioDefault);
-
   const areAllFilesValid = (files, validator) => {
     return Array.from(files).every((file) => {
       const fileType = `.${file.name.split(".").pop()}`.toLowerCase();
@@ -192,17 +190,9 @@ const GameSetup = ({ gameSetup, goToGame, onDownload }) => {
     const configJsonData = JSON.stringify(gameSetup);
     const configJsonBlob = new Blob([configJsonData], { type: "text/plain" });
 
-    /*  const link = document.createElement("a");
-    link.href = `/your-game-${os.toLowerCase()}.app`;
-    console.log(555, `/your-game-${os.toLowerCase()}.app`);
-    link.download = "file.app";
-    document.body.appendChild(link);
-    link.click(); */
     try {
       const appData = await fetch(`/your-game-${os.toLowerCase()}.app`);
-      console.log(111, appData);
       const appBlob = await appData.blob();
-      console.log(222, appBlob);
 
       const zip = new JSZip();
       zip.file("setup.json", configJsonBlob);

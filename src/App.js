@@ -1,22 +1,11 @@
 import React, { useEffect, useState } from "react";
-//import isDev from "electron-is-dev";
 import { Game, GameSetup, Goodbye, Intro } from "./pages/";
 import { Header, MenuBar } from "./components";
 import { isElectron } from "./utils";
-/* import JsonSetupDev from "./assets/docs/setup.json";
-import JsonSetupProd from "../../../../../../setup.json"; */
 import { Github, Linkedin } from "./assets/icons";
 import "./App.css";
 
-//const JsonSetup = require(`${process.env.REACT_APP_MAIN}`);
-
 const isElectronProcess = isElectron();
-const electron = isElectronProcess && window.require("electron");
-const remote = isElectronProcess && electron.remote;
-
-const ipcRenderer = isElectronProcess && electron.ipcRenderer;
-/*const mainProcess =
-  isElectronProcess && remote.require(`${process.env.REACT_APP_MAIN}`); */
 
 const App = () => {
   const [hasIntro, setHasIntro] = useState(!isElectronProcess);
@@ -24,46 +13,18 @@ const App = () => {
   const [gameSetup, setGameSetup] = useState({});
   const [isDownload, setIsDownload] = useState(false);
   const [jsonSetup, setJsonSetup] = useState({});
-  /*   isDev ? JsonSetupDev : JsonSetupProd */
-  //const [jsonSetup, setJsonSetup] = useState(mainProcess.getJsonData());
 
   useEffect(() => {
-    /*   console.log(444, isElectronProcess, window.location.pathname);
-    isElectronProcess && ipcRenderer.send("request-json-data");
-    isElectronProcess &&
-      ipcRenderer.on("send-json-data", (e, data, a, b) => {
-        console.log(999, data, a, b);
-        setJsonSetup(data);
-      }); */
-    console.log(
-      66,
-      /*  window.location.pathname,
-      window.location.pathname.split("Memory")[0],
-      `${window.location.pathname.split("Memory")[0]}setup.json` */
-      window.location.pathname,
-      window.location.pathname.split("Memory")[0],
-      `${window.location.pathname.split("Memory")[0]}setup.json`
-    );
     const fetchData = async () => {
       const response = await fetch(
         `${window.location.pathname.split("Memory")[0]}setup.json`
       );
       const jsonData = await response.json();
-      console.log(2222, jsonData, response);
       setJsonSetup(jsonData);
     };
 
     fetchData();
   }, []);
-
-  /*  console.log(
-    333,
-    `${process.env.REACT_APP_MAIN} ${process.env.REACT_APP_VERSION}`,
-    jsonSetup
-  ); */
-  console.log(555, jsonSetup);
-
-  //const jsonProd = "../../../../../../setup.json";
 
   const goToGame = (setup) => {
     setGameSetup(setup);
