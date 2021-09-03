@@ -25,3 +25,7 @@ yarn-error.log*
 
 
 public/your-game*
+
+.firebase/
+.firebaserc
+firebase.json

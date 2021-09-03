@@ -73,6 +73,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 1.5rem;
+  min-width: 5rem;
 }
 
 .game-setup__icon-button {
