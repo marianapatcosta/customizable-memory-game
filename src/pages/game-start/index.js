@@ -14,12 +14,15 @@ const GameStart = ({ startGame, backToSetup }) => {
       <div className="game-start__present">
         <Emoji label="present" emoji="🎁" />
       </div>
+      <div className="game-start__footer">  
+      <Button className="game-start__button" onClick={startGame} label="Start Game" />
       {!isElectronProcess && (
           <button className='button-link game-start__link' onClick={backToSetup}>
             back to setup
           </button>
         )}
-      <Button className="game-start__button" onClick={startGame} label="Start Game" />
+      </div>
+  
     </div>
   );
 };

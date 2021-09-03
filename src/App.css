@@ -2,6 +2,9 @@
   text-align: center;
   width: 100vw;
   height: 100vh;
+
+   -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .app::-webkit-scrollbar {

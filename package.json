@@ -2,9 +2,9 @@
   "name": "memory-game",
   "homepage": "./",
   "productName": "Customizable Memory Game",
-  "main": "./public/electron.js",
+  "main": "public/electron.js",
   "author": "Mariana Costa",
-  "description": "Memory Game that can be csutomized with personal photos, memes or other content.",
+  "description": "Memory Game that can be customized with personal photos, memes or other content.",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^7.1.2",
     "electron-is-dev": "^1.2.0",
     "electron-log": "^4.3.4",
+    "electron-packager": "^15.2.0",
     "file-saver": "^2.0.5",
     "jszip": "^3.6.0",
     "react": "^16.13.1",
@@ -29,10 +30,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron-build": "electron-builder",
+    "electron-build": "npm run build && electron-builder -c.extraMetadata.main=build/electron.js",
     "electron-build-win": "npm run build && electron-builder --win",
     "electron-build-mac": "npm run build && electron-builder --mac",
-    "electron-build-linux": "npm run build && electron-builder --linux"
+    "electron-build-linux": "npm run build && electron-builder --linux",
+    "electron-packager": "npm run build && electron-packager . --asar=true --platform=win32 --arch=ia32 --out=\"build\" --overwrite --icon=\"./public/memory.png\"  --prune=true"
   },
   "eslintConfig": {
     "extends": "react-app"

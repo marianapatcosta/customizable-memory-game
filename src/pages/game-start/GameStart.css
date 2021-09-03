@@ -1,7 +1,8 @@
 .game-start {
-  height: 80vh;
+  height: calc(100vh - 9rem);
   position: relative;
   padding-top: 1.5rem;
+  overflow: hidden;
 }
 
 .game-start__title {
@@ -11,10 +12,6 @@
 }
 
 .game-start__button {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   margin: 0 auto;
 }
 
@@ -28,12 +25,18 @@
   -webkit-animation: shaking 1.2s infinite;
 }
 
+.game-start__footer {
+  position: fixed;
+  bottom: 3rem;
+  width: 100%;
+}
+
 .game-start__link {
-  position: absolute;
   font-size: 95%;
-  left: 2rem;
+  margin: 0;
+  position: absolute;
+  right: 2rem;
   bottom: 0;
-  height: 2rem;
 }
 
 @media only screen and (min-width: 767px) {
