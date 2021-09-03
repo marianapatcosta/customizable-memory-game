@@ -22,6 +22,7 @@
 .game-setup__step-image {
   max-width: 18rem;
   max-height: 13rem;
+  min-height: 11rem;
   margin: 1rem auto;
 }
 
