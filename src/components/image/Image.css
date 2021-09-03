@@ -12,6 +12,7 @@
   position: relative;
   overflow: hidden;
   opacity: 0.5;
+  height: 100%;
 }
 
 .image__wrapper {
