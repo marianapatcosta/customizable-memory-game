@@ -21,7 +21,7 @@
     "react-scripts": "3.4.1"
   },
   "devDependencies": {
-    "electron": "^11.4.2",
+    "electron": "^13.6.6",
     "electron-builder": "^22.10.5"
   },
   "scripts": {
